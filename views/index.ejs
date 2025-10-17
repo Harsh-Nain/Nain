@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://kit.fontawesome.com/b3b89cf277.js" crossorigin="anonymous"></script>
+</head>
+
+<style>
+    #Schema,
+    #data,
+    #auth {
+        display: none;
+    }
+
+    .api {
+        position: fixed;
+        left: 20%;
+        top: 35%;
+    }
+
+    .bt3 {
+        position: absolute;
+        right: 30.5%;
+        top: 23%;
+    }
+
+    .cut {
+        position: absolute;
+        right: 2%;
+        top: 3%;
+    }
+
+    .cut i {
+        color: gray;
+        transition: all 0.2s linear;
+    }
+
+    .cut:hover i {
+        color: rgb(0, 255, 17);
+    }
+
+    .btmc {
+        position: absolute;
+        right: 10%;
+        margin-top: 7px;
+        border: 1px solid gray;
+        border-radius: 10px;
+        width: 50px;
+        height: 30px;
+        font-size: 12px;
+        cursor: pointer;
+    }
+
+    .btmc:active {
+        font-size: 0;
+        transition: all 0.7s linear;
+    }
+</style>
+
+<body class="bg-zinc-900 text-white h-screen flex flex-row gap-6 overflow-hidden">
+    <div class="bg-zinc-800 p-6 w-[22%] flex flex-col items-center gap-7">
+        <h1 class="text-2xl text-green-500 w-full font-bold text-left">BackCrafter</h1>
+
+        <div class="flex flex-col w-full gap-4">
+            <button id="btn" class="w-full rounded-xl cursor-pointer p-2 text-left flex flex-row items-center gap-3"><i
+                    class="fa-solid fa-circle-user fa-lg" style="color: #ffffff;"></i>Profile</button>
+            <button id="btn" class="w-full cursor-pointer rounded-xl p-2 text-left flex flex-row items-center gap-3"><i
+                    class="fa-solid fa-database fa-xl" style="color: #ffffff;"></i> Schema API</button>
+            <button id="btn" class="w-full cursor-pointer rounded-xl p-2 text-left flex flex-row items-center gap-3"><i
+                    class="fa-solid fa-file-zipper fa-lg" style="color: #ffffff;"></i>Data Save API</button>
+            <button id="btn" class="w-full cursor-pointer rounded-xl p-2 text-left flex flex-row items-center gap-3"><i
+                    class="fa-solid fa-shield fa-lg" style="color: #ffffff;"></i>Auth Handle API</button>
+        </div>
+    </div>
+
+    <div id="hid" class="flex flex-col items-center gap-6 justify-between w-[47%] h-screen">
+        <div class="flex flex-row items-center gap-4 w-full bg-zinc-800 rounded-xl px-2 py-5 mt-8">
+
+            <div class="rounded-full border-2 border-green-500 size-25 overflow-hidden">
+                <img src="<%=img %>" style="width: 100%;height: 100%; object-fit: contain;" alt="">
+            </div>
+
+            <div class="flex flex-col justify-centre">
+                <h1 class="text-2xl font-bold">
+                    <%= username %>
+                </h1>
+                <h2 class="text-green-500">
+                    <%=data.email %>
+                </h2>
+                <p class="flex flex-row gap-2 text-sm text-gray-500 items-center"><i class="fa-solid fa-phone fa-mg"
+                        style="color: #616161;"></i>+91 <%=data.number %>
+                </p>
+                <p class="flex flex-row gap-2 text-sm text-gray-500 items-center">
+                    <%= data.fullname %>
+                </p>
+                <button id="bt3"
+                    class="bt3 border-2 border-green-500 rounded-lg h-7 w-7 hover:bg-green-500 cursor-pointer text-xs">🗝️</button>
+            </div>
+        </div>
+
+        <div class="flex flex-row gap-6 w-full justify-between mt-2">
+            <div class="flex-col flex justify-centre rounded-xl bg-zinc-800 gap-2 p-4 size-30">
+                <h1 class="text-green-500 font-bold text-xl">1</h1>
+                <p>Active goals</p>
+            </div>
+            <div class="flex-col flex justify-centre rounded-xl bg-zinc-800 gap-2 p-4 size-30">
+                <h1 class="text-green-500 font-bold text-xl">99%</h1>
+                <p>Progress</p>
+            </div>
+            <div class="flex-col flex justify-centre rounded-xl bg-zinc-800 gap-2 p-4 size-30">
+                <h1 class="text-green-500 font-bold text-xl">1</h1>
+                <p>Completed <br>Task</p>
+            </div>
+            <div class="flex-col flex justify-centre rounded-xl bg-zinc-800 gap-2 p-4 size-30">
+                <h1 class="text-green-500 font-bold text-xl">0</h1>
+                <p>Due Task</p>
+            </div>
+        </div>
+
+        <div class="flex flex-col gap-10 w-full mt-3">
+            <h3 class="text-lg w-full border-b-1">Complete Due Tasks</h3>
+            <div class=" flex-col flex  h-40 overflow-y-scroll gap-10"
+                style="scrollbar-width: none;-ms-overflow-style:none">
+
+                <div class="flex flex-row items-center w-full justify-between">
+                    <p>1. Start the two hours API testing spint</p>
+                    <p class="text-green-500 font-bold">40%</p>
+                </div>
+                <div class="flex flex-row items-center w-full justify-between">
+                    <p>2. Complete the Documentation of BackCrafter API</p>
+                    <p class="text-green-500 font-bold">70%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="hid"
+        class="flex flex-col w-[25%] h-fitcontent mt-8 rounded-xl justify-centre items-center p-4 bg-zinc-800">
+        <div class="w-[100%] flex flex-row items-center justify-between border-b-1 border-gray-500 ">
+            <h3 class="text-2xl">Statistics</h3>
+            <p class="month"></p>
+        </div>
+        <div class="flex-col flex w-full gap-1">
+            <div class="w-[100%] flex flex-row items-center justify-between mt-5">
+                <h3 class="text-lg">Profational</h3>
+                <p class="text-green-500 font-bold">+21%</p>
+            </div>
+            <p class="text-gray-500 text-sm">Based on work</p>
+            <p class="p-2 text-xs text-center w-[90%] text-gray-500 bg-gray-800 rounded-lg">[Graph Placeholder - Neon
+                Green Line]</p>
+        </div>
+        <div class="flex-col flex w-full gap-1">
+            <div class="w-[100%] flex flex-row items-center justify-between mt-5">
+                <h3 class="text-lg">Sucess</h3>
+                <p class="text-green-500 font-bold">+42%</p>
+            </div>
+            <p class="text-gray-500 text-sm">Based on Project</p>
+            <p class="p-2 text-xs text-center w-[90%] text-gray-500 bg-gray-800 rounded-lg">[Graph Placeholder - Neon
+                Green Line]</p>
+        </div>
+    </div>
+
+    <div class="flex flex-col w-[75%] gap-10" id="Schema">
+        <h1 class="text-3xl mt-5 text-green-500 flex border-b-2 border-white flex-row gap-3 items-center font-bold"><i
+                class="fa-solid fa-wrench fa-sm" style="color: #ffffff;"></i>Schema Api Management </h1>
+        <div>
+            <h2 class="text-green-300 mt-10 text-xl">API Name : Create Collention Schema</h2>
+            <p>Decription Define a new data Collention (e.g.,'products','post') and its fields using a JSON payload.</p>
+        </div>
+
+
+        <div class="flex-row mt-4 flex w-[90%] border-green-500 border-l-2 bg-zinc-800 rounded-xl h-99 overflow-y-scroll"
+            style="scrollbar-width: none;-ms-overflow-style:none">
+            <button onclick="copy3()" class="btmc hover:bg-green-500">Copy</button>
+            <pre><code class="cod3">
+    //Example Create a new 'articles' Collention
+    fetch('http://api.BackCrafter.io/v1/Schema/create',{
+        method: 'POST',
+        header: {
+            'Aurhoritization': 'Bearer sk_live_xxxxxxx',
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            name:'articles',
+            fields:[
+            {name:'title',type:'string',required: true},
+            {name: 'content',type: 'text'},
+            {name:'pubished_at', type: 'datetime'}
+            ]
+        })
+    })
+    .then(res => res.json())
+    .then(data => console.log('Schema Created:', data));
+            </code></pre>
+        </div>
+
+    </div>
+
+    <div class="flex flex-col w-[75%] gap-10" id="data">
+        <h1 class="text-3xl mt-5 text-green-500 flex border-b-2 border-white flex-row gap-3 items-center font-bold"><i
+                class="fa-solid fa-server fa-xs" style="color: #ffffff;"></i>Data Save API</h1>
+        <div>
+            <h2 class="text-green-300 mt-10 text-xl">API Name : Create Collention Data Base</h2>
+            <p>Decription Define a new data Collention (e.g.,'products','post') and its fields using a JSON payload.</p>
+        </div>
+
+
+        <div class="flex-row mt-4 flex w-[90%] border-green-500 border-l-2 bg-zinc-800 rounded-xl h-99 overflow-y-scroll"
+            style="scrollbar-width: none;-ms-overflow-style:none">
+            <button onclick="copy2()" class="btmc hover:bg-green-500">Copy</button>
+            <pre><code class="cod2">
+    //Example Create a new 'articles' Collention
+    fetch('http://api.BackCrafter.io/v1/Schema/create',{
+        method: 'POST',
+        header: {
+            'Aurhoritization': 'Bearer sk_live_xxxxxxx',
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            name:'articles',
+            fields:[
+            {name:'title',type:'string',required: true},
+            {name: 'content',type: 'text'},
+            {name:'pubished_at', type: 'datetime'}
+            ]
+        })
+    })
+    .then(res => res.json())
+    .then(data => console.log('Schema Created:', data));
+            </code></pre>
+        </div>
+
+    </div>
+
+    <div class="flex flex-col w-[75%] gap-10" id="auth">
+        <h1 class="text-3xl mt-5 text-green-500 flex border-b-2 border-white flex-row gap-3 items-center font-bold"><i
+                class="fa-solid fa-wand-sparkles fa-xs" style="color: #ffffff;"></i>Auth Handle API</h1>
+        <div>
+            <h2 class="text-green-300 mt-10 text-xl">API Name : Create Collention Auth Handle</h2>
+            <p>Decription Define a new data Collention (e.g.,'products','post') and its fields using a JSON payload.</p>
+        </div>
+
+
+        <div class="flex-row mt-4 flex w-[90%] border-green-500 border-l-2 bg-zinc-800 rounded-xl h-99 overflow-y-scroll"
+            style="scrollbar-width: none;-ms-overflow-style:none">
+            <button onclick="copy1()" class="btmc hover:bg-green-500">Copy</button>
+            <pre><code class="cod">
+    //Example Create a new 'articles' Collention
+    fetch('http://api.BackCrafter.io/v1/Schema/create',{
+        method: 'POST',
+        header: {
+            'Aurhoritization': 'Bearer sk_live_xxxxxxx',
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            name:'articles',
+            fields:[
+            {name:'title',type:'string',required: true},
+            {name: 'content',type: 'text'},
+            {name:'pubished_at', type: 'datetime'}
+            ]
+        })
+    })
+    .then(res => res.json())
+    .then(data => console.log('Schema Created:', data));
+            </code></pre>
+        </div>
+
+    </div>
+
+    <div class="flex flex-col api items-center bg-zinc-800 w-[50%] p-8 rounded-2xl border border-green-500 shadow-[0_0_10px_#00ff88]"
+        style="display:none;">
+        <p class="text-gray-400 text-lg text-center text-green-400 -mt-2 mb-5">Your API Key</p>
+
+        <div class="flex flex-row justify-between w-full border border-green-600 items-center rounded-lg">
+            <input type="text"
+                class="w-[90%] signup-inputs bg-transparent outline-none p-2 text-sm placeholder-gray-400 focus:border-green-400 transition-all duration-200"
+                placeholder="Enter your Username" value="<%= data.apikey %>" id="key" />
+            <button class="border-green-500 border-1 text-xs rounded-sm mr-1 cursor-pointer hover:bg-green-500 px-2 h-7"
+                onclick="copy()">Copy</button>
+        </div>
+        <p class="cut cursor-pointer"><i class="fa-solid fa-xmark fa-lg"></i></p>
+    </div>
+
+    <script>
+        const api = document.querySelector('.api')
+        const cut = document.querySelector('.cut')
+        const bt3 = document.querySelector('#bt3')
+        const auth = document.querySelector('#auth')
+        const data = document.querySelector('#data')
+        const hid = document.querySelectorAll('#hid')
+        const btn = document.querySelectorAll('#btn')
+        const month = document.querySelector('.month')
+        const Schema = document.querySelector('#Schema')
+
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        month.innerHTML = `${months[new Date().getMonth()]}`
+
+        function copy() {
+            const copyText = document.querySelector('#key')
+            navigator.clipboard.writeText(copyText.value);
+            cut.click()
+        }
+        function copy1() {
+            const copyText = document.querySelector('.cod')
+            navigator.clipboard.writeText(copyText.textContent);
+        }
+        function copy2() {
+            const copyText = document.querySelector('.cod2')
+            navigator.clipboard.writeText(copyText.textContent);
+        }
+        function copy3() {
+            const copyText = document.querySelector('.cod2')
+            navigator.clipboard.writeText(copyText.textContent);
+        }
+
+        cut.addEventListener('click', () => {
+            api.style.display = 'none'
+            bt3.classList.remove('bg-green-500')
+        })
+
+        bt3.addEventListener('click', () => {
+            if (api.style.display == 'none') {
+                api.style.display = 'block'
+                bt3.classList.add('bg-green-500')
+            } else {
+                api.style.display = 'none'
+                bt3.classList.remove('bg-green-500')
+            }
+        })
+
+        btn.forEach(b => {
+            b.addEventListener('click', () => {
+                Schema.style.display = 'none'
+                hid.forEach(h => {
+                    h.style.display = 'none';
+                });
+                data.style.display = 'none'
+                auth.style.display = 'none'
+
+                if (b.textContent.trim() == 'Schema API') {
+                    Schema.style.display = 'block'
+
+                } else if (b.textContent == 'Data Save API') {
+                    data.style.display = 'block'
+                }
+                else if (b.textContent == 'Auth Handle API') {
+                    auth.style.display = 'block'
+                }
+                else {
+                    hid.forEach(h => {
+                        h.style.display = 'flex';
+                    });
+                }
+                btn.forEach(b => {
+                    b.style.backgroundColor = 'transparent'
+                });
+                b.style.backgroundColor = 'green'
+            })
+        });
+
+        window.onload = () => {
+            document.querySelector('#btn').style.backgroundColor = 'green'
+        }
+
+    </script>
+
+</body>
+
+</html>

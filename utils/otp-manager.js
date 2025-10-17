@@ -1,5 +1,9 @@
-const { randomInt } = require("crypto");
 const nodemailer = require("nodemailer");
+const { randomInt } = require("crypto");
+
+function generateOtp() {
+  return String(randomInt(0, 1000000)).padStart(6, "0");
+}
 
 async function sendMail(email, otp) {
   const transporter = nodemailer.createTransport({
@@ -14,18 +18,12 @@ async function sendMail(email, otp) {
     from: process.env.ADMIN_EMAIL,
     to: email,
     subject: "OTP Verification",
-    text: `Your Backcrafter account OTP is ${otp}. It’s valid for 5 minutes.`,
+    text: `Your OTP is ${otp}. Its valid for 5 minutes.`,
   };
-  try {
-    const info = await transporter.sendMail(mailOptions);
-    console.log("Email sent:", info.response);
-    return true;
-  } catch (err) {
-    console.log(err.maasge);
-  }
-}
-function generateOtp() {
-  return String(randomInt(0, 1000000)).padStart(6, "0");
+
+  await transporter.sendMail(mailOptions);
+  console.log("OTP sent to:", email, `${otp}`);
+  return true;
 }
 
-module.exports = { generateOtp, sendMail };
+module.exports = { generateOtp, sendMail }

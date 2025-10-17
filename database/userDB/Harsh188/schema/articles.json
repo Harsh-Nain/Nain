@@ -1,0 +1,18 @@
+{
+  "name": "articles",
+  "fields": [
+    {
+      "name": "title",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "content",
+      "type": "text"
+    },
+    {
+      "name": "pubished_at",
+      "type": "datetime"
+    }
+  ]
+}

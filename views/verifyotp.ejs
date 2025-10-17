@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Verify OTP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<style>
+    @keyframes scakInput {
+        0% {
+            transform: translateX(-10px);
+        }
+
+        25% {
+            transform: translateX(10px);
+        }
+
+        50% {
+            transform: translateX(-10px);
+        }
+
+        75% {
+            transform: translateX(10px);
+        }
+
+        100% {
+            transform: translateX(0px);
+        }
+    }
+</style>
+
+<body class="bg-zinc-900 text-white h-screen flex justify-center items-center">
+    <form action="/verifyotp" method="POST"
+        class="bg-zinc-900 p-6 rounded-xl w-[400px] flex flex-col items-center gap-7 border border-green-500 shadow-[0_0_10px_#00ff88]">
+        <h2 class="text-xl font-bold text-green-400">Verify Email</h2>
+        <input type="hidden" name="email" value="<%= email %>" />
+        <input name="otp" type="text" placeholder="Enter OTP" id="otp"
+            class="w-full p-2 outline-none rounded bg-transparent border border-green-400 text-white" required />
+        <input type="submit"
+            class="w-[100%] py-2 text-white cursor-pointer bg-green-500 hover:bg-green-500 text-black font-semibold text-lg rounded-lg transition-all duration-200  hover:bg-green-700"
+            value="Verify" />
+    </form>
+
+</body>
+
+</html>
