@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 require('dotenv').config();
-// const { checkapi } = require("../middleware/checkValidApi");
+const { checkapi } = require("../middleware/checkapi");
 const { getschema, list, createSchema, deleteSchema } = require("../controllers/schemaControl")
 
 
