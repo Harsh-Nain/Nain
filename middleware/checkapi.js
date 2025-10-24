@@ -1,4 +1,4 @@
-const CryptoJS=require("crypto-js")
+const CryptoJS = require("crypto-js")
 function checkapi(req, res, next) {
     try {
         const apiKey = req.headers["api-key"];
@@ -19,8 +19,8 @@ function checkapi(req, res, next) {
         next();
     }
     catch (err) {
-        res.status(500).json({ message: "Internal server error" ,err});
+        res.status(500).json({ message: "Internal server error", err });
     }
 }
 
-module.exports={checkapi}
+module.exports = { checkapi }

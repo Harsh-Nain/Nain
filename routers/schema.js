@@ -11,13 +11,10 @@ router.post('/create', checkapi, (req, res) => {
     return res.status(result.status).json(result.data);
 });
 
-function checkapi(req, res, next) {
-    console.log(req);
-}
-
 router.get('/list', checkapi, (req, res) => {
 
     const result = list(req.username);
+    console.log(result);
     return res.status(result.status).json(result.data);
 });
 
@@ -27,11 +24,10 @@ router.get('/getschema', checkapi, (req, res) => {
     return res.status(result.status).json(result.data);
 });
 
-
 router.get('/delete', checkapi, (req, res) => {
+
     const result = deleteSchema(req.username, req.query.name);
-    console.log(result);
-    res.json({ data: 'deleted' })
+    res.json({ result })
 })
 
 module.exports = router;

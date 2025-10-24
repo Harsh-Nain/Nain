@@ -5,7 +5,10 @@
     <meta charset="UTF-8" />
     <title>Verify OTP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="/css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://kit.fontawesome.com/b3b89cf277.js" crossorigin="anonymous"></script>
 </head>
 
 <style>
@@ -33,17 +36,77 @@
 </style>
 
 <body class="bg-zinc-900 text-white h-screen flex justify-center items-center">
-    <form action="/Auth/verifyotp" method="POST"
+    <div action="/Auth/verifyotp"
         class="bg-zinc-900 p-6 rounded-xl w-[400px] flex flex-col items-center gap-7 border border-green-500 shadow-[0_0_10px_#00ff88]">
         <h2 class="text-xl font-bold text-green-400">Verify Email</h2>
-        <input type="hidden" name="email" value="<%= email %>" />
-        <input name="otp" type="text" placeholder="Enter OTP" id="otp"
+        <input id="email" type="hidden" name="text" value="<%= email %>" />
+        <input id="otp" name="otp" type="text" placeholder="Enter OTP" id="otp"
             class="w-full p-2 outline-none rounded bg-transparent border border-green-400 text-white" required />
-        <input type="submit"
+        <input id="enter" type="button"
             class="w-[100%] py-2 text-white cursor-pointer bg-green-500 hover:bg-green-500 text-black font-semibold text-lg rounded-lg transition-all duration-200  hover:bg-green-700"
             value="Verify" />
-    </form>
+    </div>
 
+
+    <div class="toast">
+        <div class="toast-content">
+            <i class="fa-solid fa-xmark uil toast-check " style="color: #ffffff;"></i>
+            <div class="message">
+                <span class="message-text text-1">Error</span>
+                <span class="message-text text-2">Invalid or expired otp</span>
+            </div>
+        </div>
+        <i class="uil uil-multiply toast-close"></i>
+        <div class="progress"></div>
+    </div>
+
+    <script>
+        const email = document.querySelector('#email').value
+        const otp = document.querySelector('#otp')
+        const enter = document.querySelector('#enter')
+        enter.addEventListener("click", async () => {
+
+            const response = await fetch("/Auth/verifyotp", {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    email: email,
+                    otp: otp.value
+                })
+            });
+
+            const data = await response.json()
+            if (data.success) {
+                window.location.href = data.redirect;
+            }
+            else {
+                toast.classList.add("active");
+                progress.classList.add("active");
+
+                setTimeout(() => {
+                    toast.classList.remove("active");
+                }, 5000)
+
+                setTimeout(() => {
+                    progress.classList.remove("active");
+                }, 5300)
+            }
+        })
+        var toast = document.querySelector(".toast");
+        var close = document.querySelector(".toast-close");
+        var progress = document.querySelector(".progress");
+
+        close.addEventListener("click", () => {
+            toast.classList.remove("active");
+
+            setTimeout(() => {
+                progress.classList.remove("active");
+            }, 300)
+        })
+
+    </script>
 </body>
 
 </html>

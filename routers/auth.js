@@ -34,7 +34,7 @@ routes.get("/verifyotp", (req, res) => {
 
 routes.post("/signup", upload.single("image"), async (req, res) => {
     const { fullname, password, email, appname, number } = req.body;
-    const src = req.file.path
+    const src = req.file.path || ''
     const generatedOtp = generateOtp();
     const username = createusername(fullname);
 
@@ -58,12 +58,14 @@ routes.post("/signup", upload.single("image"), async (req, res) => {
 });
 
 routes.post("/verifyotp", async (req, res) => {
-    const { email, otp } = req.body;
+    console.log(req.body);
+    const { otp, email } = req.body;
+
     const data = otpStore[email];
     const db = maindb();
 
     if (!data) {
-        return res.redirect('/Auth/verifyotp')
+        return res.json({ success: false, redirect: `/Auth/verifyotp?email=${email}` });
     }
 
     const isValid = data.otp === otp && Date.now() < data.expired;
@@ -91,10 +93,10 @@ routes.post("/verifyotp", async (req, res) => {
 
         const token = jwt.sign({ username }, process.env.sc_key);
         res.cookie('token', token);
-        res.redirect('/');
+        res.json({ success: true, redirect: '/' });
     }
     else {
-        return res.redirect('/Auth/verifyotp');
+        return res.json({ success: false, redirect: `/Auth/verifyotp?email=${email}` });
     }
 });
 
