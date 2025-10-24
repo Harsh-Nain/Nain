@@ -4,7 +4,6 @@ require('dotenv').config();
 const { checkapi } = require("../middleware/checkapi");
 const { getschema, list, createSchema, deleteSchema } = require("../controllers/schemaControl")
 
-
 router.post('/create', checkapi, (req, res) => {
     const { name, ...bodyData } = req.body;
     const result = createSchema(req.username, name, bodyData)
