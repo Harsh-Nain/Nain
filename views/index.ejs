@@ -79,9 +79,8 @@
 
     <div id="hid" class="flex flex-col items-center gap-6 justify-between w-[47%] h-screen">
         <div class="flex flex-row items-center gap-4 w-full bg-zinc-800 rounded-xl px-2 py-5 mt-8">
-
             <div class="rounded-full border-2 border-green-500 size-25 overflow-hidden">
-                <img src="<%=img %>" style="width: 100%;height: 100%; object-fit: contain;" alt="">
+                <img src="<%=data.src%>" style="width: 100%;height: 100%; object-fit: cover;" alt="">
             </div>
 
             <div class="flex flex-col justify-centre">
@@ -140,7 +139,7 @@
 
     <div id="hid"
         class="flex flex-col w-[25%] h-fitcontent mt-8 rounded-xl justify-centre items-center p-4 bg-zinc-800">
-        <div class="w-[100%] flex flex-row items-center justify-between border-b-1 border-gray-500 ">
+        <div class="w-[100%] flex flex-row items-center justify-between border-b-2 border-green-500 ">
             <h3 class="text-2xl">Statistics</h3>
             <p class="month"></p>
         </div>

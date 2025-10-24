@@ -1,7 +1,7 @@
 const express = require('express')
 const routes = express.Router();
 const { islogin } = require("../middleware/authmid");
-const { maindb, uplodes } = require("../config/dbManager");
+const { maindb } = require("../config/dbManager");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
@@ -12,24 +12,17 @@ routes.get('/', islogin, (req, res) => {
     const data = db[username];
     if (!data) res.redirect('/login')
 
-    const uploads = uplodes()
-    let src
-    uploads.forEach(i => {
-        const n = i.split('-')[1]
-        if (n == data.now) {
-            src = i
-        }
-    });
-    const img = `uploads/${src}`
-
-    res.render('index', { data, username, img });
+    res.render('index', { data, username });
 });
 
 routes.get('/login', (req, res) => {
     res.render('login');
 });
 
-
+routes.get('/logout', (req, res) => {
+    res.cookie('token', '');
+    res.redirect('login');
+});
 
 routes.post('/login', (req, res) => {
     const { username, password } = req.body;
@@ -44,10 +37,6 @@ routes.post('/login', (req, res) => {
         res.cookie('token', token);
         res.json({ success: true, redirect: '/' });
     });
-});
-routes.get('/logout', (req, res) => {
-    res.cookie('token', '');
-    res.redirect('login');
 });
 
 module.exports = routes;

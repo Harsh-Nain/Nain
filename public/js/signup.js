@@ -58,7 +58,7 @@ create.addEventListener("click", async () => {
     dta.append("password", password.value);
     dta.append("appname", appname.value);
 
-    const response = await fetch("/signup", {
+    const response = await fetch("/Auth/signup", {
         method: "POST",
         body: dta,
     });

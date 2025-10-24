@@ -2,12 +2,6 @@ const fs = require('fs')
 const path = require('path')
 const utilsPath = path.resolve(__dirname, '..');
 
-const read = 'uploads'
-function uplodes() {
-    const fil = fs.readdirSync(read)
-    return fil
-}
-
 function maindb() {
     const db = JSON.parse(fs.readFileSync(path.join(utilsPath, process.env.Main_db, "db.json"), 'utf8'));
     return db
@@ -22,4 +16,4 @@ function saveDb(db) {
     }
 }
 
-module.exports = { saveDb, maindb, uplodes }
+module.exports = { saveDb, maindb }

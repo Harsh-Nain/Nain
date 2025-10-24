@@ -19,7 +19,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.set("view engine", "ejs");
 
 app.use('/', mainRouter);
-app.use('/', authRouter);
+app.use('/Auth', authRouter);
 app.use('/api/schema', schemRouter);
 
 app.listen(PORT);

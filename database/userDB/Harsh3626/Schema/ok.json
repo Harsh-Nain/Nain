@@ -1,8 +1,8 @@
 {
-  "name": "articles",
+  "name": "ok",
   "fields": [
     {
-      "name": "title",
+      "name": "data",
       "type": "string",
       "required": true
     },

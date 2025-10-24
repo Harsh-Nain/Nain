@@ -8,8 +8,8 @@ const multer = require("multer")
 const { createDir, createusername } = require("../utils/authManger");
 const { saveDb, maindb } = require("../config/dbManager");
 const { generateOtp, sendMail } = require("../utils/otp-manager");
-
 let otpStore = {};
+
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -21,7 +21,6 @@ const storage = multer.diskStorage({
         cb(null, file.fieldname + '-' + uniqueSuffix)
     }
 })
-
 const upload = multer({ storage: storage })
 
 routes.get("/signup", (req, res) => {
@@ -35,8 +34,7 @@ routes.get("/verifyotp", (req, res) => {
 
 routes.post("/signup", upload.single("image"), async (req, res) => {
     const { fullname, password, email, appname, number } = req.body;
-    const now = req.file.path.split('-')[1]
-    // const src = req.file.path
+    const src = req.file.path
     const generatedOtp = generateOtp();
     const username = createusername(fullname);
 
@@ -49,14 +47,13 @@ routes.post("/signup", upload.single("image"), async (req, res) => {
         number,
         password,
         email,
-        // src,
-        now
+        src
     };
 
     const mail = await sendMail(email, generatedOtp);
 
     if (mail) {
-        return res.json({ success: true, redirect: `/verifyotp?email=${email}` });
+        return res.json({ success: true, redirect: `/Auth/verifyotp?email=${email}` });
     }
 });
 
@@ -66,7 +63,7 @@ routes.post("/verifyotp", async (req, res) => {
     const db = maindb();
 
     if (!data) {
-        return res.redirect('/verifyotp')
+        return res.redirect('/Auth/verifyotp')
     }
 
     const isValid = data.otp === otp && Date.now() < data.expired;
@@ -84,8 +81,7 @@ routes.post("/verifyotp", async (req, res) => {
             number: data.number,
             appname: data.appname,
             apikey: apikey,
-            // src: data.src,
-            now: data.now
+            src: data.src
         };
 
         let result = saveDb(db);
@@ -98,7 +94,7 @@ routes.post("/verifyotp", async (req, res) => {
         res.redirect('/');
     }
     else {
-        return res.redirect('/verifyotp');
+        return res.redirect('/Auth/verifyotp');
     }
 });
 

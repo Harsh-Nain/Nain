@@ -18,7 +18,7 @@ async function sendMail(email, otp) {
     from: process.env.ADMIN_EMAIL,
     to: email,
     subject: "OTP Verification",
-    text: `Your OTP is ${otp}. Its valid for 5 minutes.`,
+    text: `BackCrafter send OTP to You ${otp}.Its valid for 5 minutes. Don´t Share OTP with Other.`,
   };
 
   await transporter.sendMail(mailOptions);
