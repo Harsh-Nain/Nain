@@ -1,0 +1,23 @@
+{
+  "name": "filemysanjay",
+  "fields": [
+    {
+      "name": "UserName",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "default": "abc@exmaple.com"
+    },
+    { 
+      "name": "post",
+      "type": "boolean"
+    },
+    {
+      "name": "createdAt",
+      "type": "number"
+    }
+  ]
+}

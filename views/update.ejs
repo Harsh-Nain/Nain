@@ -123,65 +123,101 @@
         <div
             class="flex flex-col items-center gap-5 w-[550px] pt-6 pb-3 px-5 rounded-2xl border border-green-500 shadow-[0_0_10px_#00ff88]">
             <h2 class="text-3xl font-semibold text-center">
-                <span class="text-green-500">Join</span> the
-                <span class="text-green-500">Backend</span> Platform
+                <span class="text-green-500">Update</span> Profile
             </h2>
-            <p class="text-gray-400 text-sm text-center -mt-2 mb-2">
-                Build, store, and manage your web data securely — all in one place.
-            </p>
 
-            <div class="flex flex-row w-[90%] justify-between items-center">
-                <div class=" flex flex-col w-[20%] gap-3 justify-center items-center">
-                    <div class="size-20 rounded-full overflow-hidden border-green-500 border-dashed border-2">
-                        <img src="" dropzone="copy" id="image" class="text-base text-center"
-                            style="width: 100%; height: 100%;object-fit: cover;" alt="🥅 Drop- Hare">
-                    </div>
-                    <input type="file"
-                        class="border-green-400 text-xs w-[80%] px-1 h-5 pt-[2%] hover:bg-green-500 border-1 rounded-lg border-solid "
-                        name="img" id="img">
-                </div>
-
-                <div class="w-[70%] flex gap-3 flex-col">
-                    <input type="text"
-                        class="signup-inputs w-50% border border-green-600 bg-transparent outline-none p-3 rounded-lg text-sm placeholder-gray-400 focus:border-green-400 transition-all duration-200"
-                        placeholder="Enter Fullname" id="fullname" />
-                    <input type="email"
-                        class="signup-inputs w-50% border border-green-600 bg-transparent outline-none p-3 rounded-lg text-sm placeholder-gray-400 focus:border-green-400 transition-all duration-200"
-                        placeholder="Enter Email" id="email" />
-                </div>
+            <div class="size-25 rounded-full overflow-hidden border-green-500 border-1 border-2">
+                <img src="<%= user.src %>" dropzone="copy" id="image" class="text-base text-center"
+                    style="width: 100%; height: 100%;object-fit: cover;" alt="🥅 Drop- Hare">
             </div>
+            <input type="file"
+                class="border-green-400 cursor-pointer text-xs w-[14%] px-1 h-6 pt-[1%] hover:bg-green-500 border-1 rounded-lg border-solid "
+                name="img" id="img">
+
+            <input type="text"
+                class="signup-inputs w-[90%] border border-green-600 bg-transparent outline-none p-3 text-sm rounded-lg placeholder-gray-400 focus:border-green-400 transition-all duration-200"
+                placeholder="Enter Fullname" id="fullname" value="<%=user.fullname %>" />
 
             <input type="number"
                 class="w-[90%] signup-inputs border border-green-600 bg-transparent outline-none p-3 rounded-lg text-sm placeholder-gray-400 focus:border-green-400 transition-all duration-200"
-                placeholder="Enter Contact number" id="number" />
+                placeholder="Enter Contact number" id="number" value="<%=user.number  %>" />
 
             <input type="text"
                 class="signup-inputs w-[90%] border border-green-600 bg-transparent outline-none p-3 rounded-lg text-sm placeholder-gray-400 focus:border-green-400 transition-all duration-200"
-                placeholder="Enter App name" id="appname" />
-
-            <div class="w-[90%] flex gap-3">
-                <input type="password"
-                    class="signup-inputs w-1/2 border border-green-600 bg-transparent outline-none p-3 rounded-lg text-sm placeholder-gray-400 focus:border-green-400 transition-all duration-200"
-                    placeholder="Enter password" id="password" />
-
-                <input type="password"
-                    class="signup-inputs w-1/2 border border-green-600 bg-transparent outline-none p-3 rounded-lg text-sm placeholder-gray-400 focus:border-green-400 transition-all duration-200"
-                    placeholder="Re-enter password" id="cpassword" />
-            </div>
+                placeholder="Enter App name" id="appname" value="<%= user.appname %>" />
 
             <button id="create"
-                class="w-[90%] py-3 text-white cursor-pointer bg-green-500 hover:bg-green-600 text-black font-semibold text-lg rounded-lg transition-all duration-200 hover:shadow-[0_0_5px_#00ff88]">
-                Continue
+                class="w-[90%] py-2 text-white cursor-pointer bg-green-500 hover:bg-green-600 text-black font-semibold text-lg rounded-lg transition-all duration-200 hover:shadow-[0_0_5px_#00ff88]">
+                Update Data
             </button>
-
-            <p class="text-gray-400 text-sm">
-                Already have an account?
-                <a href="/login" class="text-green-400 hover:underline">Login here</a>
-            </p>
         </div>
     </div>
+    <script>
+        const inputs = document.querySelectorAll(".signup-inputs");
+        const create = document.getElementById("create");
+        const fullname = document.getElementById("fullname");
+        const img = document.getElementById("img");
+        const image = document.getElementById("image");
+        const number = document.getElementById("number");
+        const appname = document.getElementById("appname");
+        const overlay = document.getElementById("overlay");
 
-    <script src="/js/signup.js"></script>
+        let file
+        img.addEventListener('change', (e) => {
+            file = e.target.files[0];
+            if (file) {
+                const url = URL.createObjectURL(file);
+                image.src = url;
+            }
+        });
+
+        create.addEventListener("click", async () => {
+
+            for (const input of inputs) {
+                input.classList.remove("border-red-500", "worngAnimation");
+                if (input.value.trim() == "") {
+                    input.classList.add("border-red-500", "worngAnimation");
+                    return;
+                }
+            }
+
+            if (number.value.trim().length !== 10) {
+                number.classList.add("border-red-500", "worngAnimation");
+                return;
+            }
+
+            overlay.classList.remove("hidden");
+            overlay.classList.add("flex");
+
+            const dta = new FormData();
+            dta.append("image", file);
+            dta.append("fullname", fullname.value);
+            dta.append("number", number.value);
+            dta.append("appname", appname.value);
+
+            const response = await fetch("/update", {
+                method: "POST",
+                body: dta,
+            });
+
+            const data = await response.json();
+
+            overlay.classList.add("hidden");
+            overlay.classList.remove("flex");
+
+            if (data.success) {
+                window.location.href = data.redirect;
+            } else {
+                alert(data.message || "Something went wrong.");
+            }
+        });
+
+        document.addEventListener('keyup', (e) => {
+            if (e.key == 'Enter') {
+                create.click()
+            }
+        })
+    </script>
 </body>
 
 </html>

@@ -24,8 +24,15 @@
 
     .bt3 {
         position: absolute;
-        right: 30.5%;
+        right: 29.7%;
         top: 23%;
+    }
+
+    .bt4 {
+        position: absolute;
+        transition: all 0.7s linear;
+        overflow: hidden;
+        top: 41%;
     }
 
     .cut {
@@ -59,27 +66,198 @@
         font-size: 0;
         transition: all 0.7s linear;
     }
+
+    #mark {
+        position: absolute;
+        right: 0;
+        top: 0;
+        border-radius: 0 4px 0 13px;
+    }
+
+    #switchAcc {
+        z-index: 12;
+        position: fixed;
+        left: 32.5%;
+        display: none;
+        top: 10%;
+    }
+
+    #barclick {
+        display: none;
+        position: fixed;
+        bottom: 10%;
+    }
+
+    #btn,
+    #btn i {
+        transition: all 0.2s linear;
+    }
+
+    .cover {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        z-index: 10;
+        display: none;
+        background-color: #000000b4;
+    }
+
+    .bar {
+        position: fixed;
+        transition: all 0.6s linear;
+        background-color: rgb(55, 55, 55);
+        bottom: 0.7%;
+        left: 1%;
+    }
+
+    .bar:hover {
+        background-color: green;
+    }
+
+    #box4:hover {
+        transform: scale(0.9);
+        cursor: pointer;
+    }
+
+    #box4,
+    .key,
+    .bar img,
+    .rotate {
+        transition: all 0.7s linear;
+    }
+
+    .bt3:hover .key {
+        transform: translatey(-3px);
+    }
+
+    .bt4:hover .key {
+        transform: translatey(-1px);
+    }
+
+    .bt4:hover {
+        width: 50px;
+    }
+
+    .bt4 .key {
+        transform: translatey(14px);
+    }
+
+    .bar:hover img {
+        transform: scale(-1);
+    }
+
+    .ok:hover .rotate {
+        transform: rotate(180deg);
+    }
 </style>
 
 <body class="bg-zinc-900 text-white h-screen flex flex-row gap-6 overflow-hidden">
+    <div class="cover"></div>
     <div class="bg-zinc-800 p-6 w-[22%] flex flex-col items-center gap-7">
         <h1 class="text-2xl text-green-500 w-full font-bold text-left">BackCrafter</h1>
 
         <div class="flex flex-col w-full gap-4">
-            <button id="btn" class="w-full rounded-xl cursor-pointer p-2 text-left flex flex-row items-center gap-3"><i
-                    class="fa-solid fa-circle-user fa-lg" style="color: #ffffff;"></i>Profile</button>
-            <button id="btn" class="w-full cursor-pointer rounded-xl p-2 text-left flex flex-row items-center gap-3"><i
-                    class="fa-solid fa-database fa-xl" style="color: #ffffff;"></i> Schema API</button>
-            <button id="btn" class="w-full cursor-pointer rounded-xl p-2 text-left flex flex-row items-center gap-3"><i
-                    class="fa-solid fa-file-zipper fa-lg" style="color: #ffffff;"></i>Data Save API</button>
-            <button id="btn" class="w-full cursor-pointer rounded-xl p-2 text-left flex flex-row items-center gap-3"><i
-                    class="fa-solid fa-shield fa-lg" style="color: #ffffff;"></i>Auth Handle API</button>
+            <button id="btn"
+                class="w-full rounded-xl cursor-pointer hover:bg-[green] p-2 text-left flex flex-row items-center gap-3"><i
+                    class="fa-solid fa-circle-user fa-lg"></i>Profile</button>
+            <button id="btn"
+                class="w-full cursor-pointer rounded-xl hover:bg-[green] p-2 text-left flex flex-row items-center gap-3"><i
+                    class="fa-solid
+                     fa-database fa-xl"></i> Schema API</button>
+            <button id="btn"
+                class="w-full cursor-pointer rounded-xl hover:bg-[green] p-2 text-left flex flex-row items-center gap-3"><i
+                    class="fa-solid fa-file-zipper fa-lg"></i>Data Save API</button>
+            <button id="btn"
+                class="w-full cursor-pointer rounded-xl hover:bg-[green] p-2 text-left flex flex-row items-center gap-3"><i
+                    class="fa-solid fa-shield fa-lg"></i>Auth Handle API</button>
+        </div>
+    </div>
+    <div class="bar cursor-pointer flex rounded-xl p-2 w-[20.5%] items-center justify-centre gap-4">
+        <div class="rounded-full border-1 border-black size-12 overflow-hidden">
+            <img src="<%= data.src %>" style="width: 100%;height: 100%; object-fit: cover;" alt="">
+        </div>
+        <div class="flex flex-col">
+            <h1 class="text-lg font-bold">
+                <%= username %>
+            </h1>
+            <p class="text-sm text-yellow-400">Premium</p>
+        </div>
+    </div>
+
+    <div class="bg-gray-900 border-2 border-black p-5 flex flex-col justify-between rounded-xl h-[80%] w-[27%] shadow-2xs text-center"
+        id="switchAcc">
+
+        <p id="mark" class="cursor-pointer w-7"><i class="fa-solid fa-xmark hover:text-red-700"></i>
+        </p>
+        <div class="flex flex-col gap-8 mb-5">
+            <h2 class="text-3xl mt-2 font-semibold text-center">
+                <span class="text-green-500">Your</span> Profile
+            </h2>
+            <div class="flex flex-row gap-7 justify-centre">
+                <div class="flex flex-col">
+                    <div class="rounded-full border-2 cursor-pointer border-green-500 size-23 overflow-hidden">
+                        <img src="<%=data.src%>" style="width: 100%;height: 100%; object-fit: cover;" alt="">
+                    </div>
+                    <%= username %>
+                </div>
+                <div class="flex flex-col text-left mt-3 ">
+                    <p>
+                        <%= data.fullname %>
+                    </p>
+                    <p class="text-green-400 text-sm">
+                        <%= data.email %>
+                    </p>
+                    <p class="text-gray-400 text-sm">
+                        <i class="fa-solid fa-phone fa-sm" style="color: #ffffff;"></i> +91
+                        <%= data.number %>
+                    </p>
+                    <a href="/update"
+                        class="bt4 border-1 hover:bg-yellow-500 gap-1 border-yellow-500 rounded-lg flex justify-centre items-center pl-1 w-[30px] cursor-pointer text-xs">
+                        Edit <p class="key"><i class="fa-solid fa-user-pen" style="color: #ffffff;"></i></p>
+                    </a>
+                </div>
+            </div>
+            <div class="flex flex-col justify-centre items-center gap-4 ok">
+                <div class="flex flex-col gap-2 w-[100%]">
+                    <div id="us"
+                        class="flex cursor-pointer flex-row justify-centre bg-green-800 rounded-full items-center gap-3">
+                        <input type="hidden" value="<%= addeduser[0] %>">
+                        <div class="rounded-full border-2 border-yellow-500 size-12 overflow-hidden">
+                            <img src="<%= post[0] %>" style="width: 100%;height: 100%; object-fit: cover;" alt="">
+                        </div>
+                        <h1 class="text-xl font-bold">
+                            <%= saved[0] %>
+                        </h1>
+                    </div>
+                </div>
+                <i class="fa-solid fa-repeat rotate fa-lg" style="color: #ffffff;"></i>
+                <div class="flex flex-col gap-2 w-[100%]">
+                    <div id="us"
+                        class="flex flex-row cursor-pointer justify-centre bg-gray-800 rounded-full items-center gap-3">
+                        <input type="hidden" value="<%= addeduser[1] %>">
+                        <div class="rounded-full border-2 border-yellow-500 size-12 overflow-hidden">
+                            <img src="<%= post[1] %>" style="width: 100%;height: 100%; object-fit: cover;" alt="">
+                        </div>
+                        <h1 class="text-xl font-bold">
+                            <%= saved[1] %>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class=" flex flex-row items-center justify-centre gap-5">
+            <a id="switch" href="/login" class="hover:bg-green-900 rounded-lg p-2 bg-green-800 cursor-pointer"><i
+                    class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i> Add Another
+                Account</a>
+            <a href="logout" class="hover:bg-red-900 border-1 border-black p-2 bg-red-800 rounded-lg">logout
+                <i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a>
         </div>
     </div>
 
     <div id="hid" class="flex flex-col items-center gap-6 justify-between w-[47%] h-screen">
         <div class="flex flex-row items-center gap-4 w-full bg-zinc-800 rounded-xl px-2 py-5 mt-8">
-            <div class="rounded-full border-2 border-green-500 size-25 overflow-hidden">
+            <div class="rounded-full border-2 cursor-pointer border-green-500 size-25 overflow-hidden">
                 <img src="<%=data.src%>" style="width: 100%;height: 100%; object-fit: cover;" alt="">
             </div>
 
@@ -96,42 +274,69 @@
                 <p class="flex flex-row gap-2 text-sm text-gray-500 items-center">
                     <%= data.fullname %>
                 </p>
-                <button id="bt3"
-                    class="bt3 border-2 border-green-500 rounded-lg h-7 w-7 hover:bg-green-500 cursor-pointer text-xs">🗝️</button>
+                <button id="bt3" class="bt3 border-2 border-green-500 rounded-lg h-7 w-7 cursor-pointer text-xs">
+                    <p class="key">🗝️</p>
+                </button>
             </div>
         </div>
 
         <div class="flex flex-row gap-6 w-full justify-between mt-2">
-            <div class="flex-col flex justify-centre rounded-xl bg-zinc-800 gap-2 p-4 size-30">
-                <h1 class="text-green-500 font-bold text-xl">1</h1>
-                <p>Active goals</p>
+            <div id="box4"
+                class="flex-col border-2 border-yellow-500 flex justify-centre rounded-xl bg-zinc-800 gap-2 p-4 size-30">
+                <h1 class="text-yellow-500 font-bold text-xl">
+                    <%= api.totalRequest %>
+                </h1>
+                <p>Total Request</p>
             </div>
-            <div class="flex-col flex justify-centre rounded-xl bg-zinc-800 gap-2 p-4 size-30">
-                <h1 class="text-green-500 font-bold text-xl">99%</h1>
-                <p>Progress</p>
+            <div id="box4"
+                class="flex-col flex border-2 border-blue-400 justify-centre rounded-xl bg-zinc-800 gap-2 p-4 size-30">
+                <h1 class="text-blue-500 font-bold text-xl">
+                    <%= api.success %>
+                </h1>
+                <p>Success Request </p>
             </div>
-            <div class="flex-col flex justify-centre rounded-xl bg-zinc-800 gap-2 p-4 size-30">
-                <h1 class="text-green-500 font-bold text-xl">1</h1>
-                <p>Completed <br>Task</p>
+            <div id="box4"
+                class="flex-col border-2 border-red-400 flex justify-centre rounded-xl bg-zinc-800 gap-2 p-4 size-30">
+                <h1 class="text-red-500 font-bold text-xl">
+                    <%= api.fail %>
+                </h1>
+                <p>Fail Request</p>
             </div>
-            <div class="flex-col flex justify-centre rounded-xl bg-zinc-800 gap-2 p-4 size-30">
-                <h1 class="text-green-500 font-bold text-xl">0</h1>
-                <p>Due Task</p>
+            <div id="box4"
+                class="flex-col border-2 border-green-500 flex justify-centre rounded-xl bg-zinc-800 gap-2 p-4 size-30">
+                <p class="font-bold text-lg">Storage</p>
+                <h1 class="text-green-500">
+                    <%= total %> Bytes
+                </h1>
             </div>
         </div>
 
-        <div class="flex flex-col gap-10 w-full mt-3">
-            <h3 class="text-lg w-full border-b-1">Complete Due Tasks</h3>
-            <div class=" flex-col flex  h-40 overflow-y-scroll gap-10"
+        <div class="flex flex-col bg-zinc-800 py-3 px-5 rounded-xl gap-5 w-full mt-3">
+            <h3 class="text-lg w-full border-b-2 border-green-500">All Requests :-</h3>
+            <div class=" flex-col flex  h-38 mb-10 overflow-y-scroll gap-10"
                 style="scrollbar-width: none;-ms-overflow-style:none">
 
-                <div class="flex flex-row items-center w-full justify-between">
-                    <p>1. Start the two hours API testing spint</p>
-                    <p class="text-green-500 font-bold">40%</p>
-                </div>
-                <div class="flex flex-row items-center w-full justify-between">
-                    <p>2. Complete the Documentation of BackCrafter API</p>
-                    <p class="text-green-500 font-bold">70%</p>
+                <div class="flex flex-col gap-10 items-center w-full justify-between">
+                    <% let i=0 %>
+                        <% if (api.activities) { %>
+                            <% api.activities.forEach(info=> {%>
+                                <% i++ %>
+                                    <div class="flex flex-row items-center w-full justify-between">
+                                        <p>
+                                            <%=i %>. <%= info.message %>.
+                                        </p>
+                                        <% let color=null%>
+                                            <% if (info.responseStatus=='Success' ) { %>
+                                                <% color='green' %>
+                                                    <% } else {%>
+                                                        <% color='red' %>
+                                                            <%} %>
+                                                                <p class="text-<%= color %>-500 font-bold">
+                                                                    <%= info.statuscode %>
+                                                                </p>
+                                    </div>
+                                    <% }); %>
+                                        <% } %>
                 </div>
             </div>
         </div>
@@ -145,21 +350,26 @@
         </div>
         <div class="flex-col flex w-full gap-1">
             <div class="w-[100%] flex flex-row items-center justify-between mt-5">
-                <h3 class="text-lg">Profational</h3>
-                <p class="text-green-500 font-bold">+21%</p>
+                <h3 class="text-lg">Fail</h3>
+                <p class="text-red-500 font-bold">
+                    <%= api.fail/api.totalRequest*100 || 0%>%
+                </p>
             </div>
-            <p class="text-gray-500 text-sm">Based on work</p>
+            <p class="text-gray-500 text-sm">Based on fail Request</p>
             <p class="p-2 text-xs text-center w-[90%] text-gray-500 bg-gray-800 rounded-lg">[Graph Placeholder - Neon
-                Green Line]</p>
-        </div>
-        <div class="flex-col flex w-full gap-1">
-            <div class="w-[100%] flex flex-row items-center justify-between mt-5">
-                <h3 class="text-lg">Sucess</h3>
-                <p class="text-green-500 font-bold">+42%</p>
+                Red Line]</p>
+            <div class="flex-col flex w-full gap-1">
+                <div class="w-[100%] flex flex-row items-center justify-between mt-5">
+                    <h3 class="text-lg">Success</h3>
+                    <p class="text-green-500 font-bold">
+                        <%= api.success/api.totalRequest*100 || 0 %>%
+                    </p>
+                </div>
+                <p class="text-gray-500 text-sm">Based on success Request</p>
+                <p class="p-2 text-xs text-center w-[90%] text-gray-500 bg-gray-800 rounded-lg">[Graph Placeholder -
+                    Neon
+                    Green Line]</p>
             </div>
-            <p class="text-gray-500 text-sm">Based on Project</p>
-            <p class="p-2 text-xs text-center w-[90%] text-gray-500 bg-gray-800 rounded-lg">[Graph Placeholder - Neon
-                Green Line]</p>
         </div>
     </div>
 
@@ -287,6 +497,12 @@
 
     <script>
         const api = document.querySelector('.api')
+        const us = document.querySelectorAll('#us')
+        const Switch = document.querySelector('#switch')
+        const switchAcc = document.querySelector('#switchAcc')
+        const bar = document.querySelector('.bar')
+        const barclick = document.querySelector('#barclick')
+        const mark = document.querySelector('#mark')
         const cut = document.querySelector('.cut')
         const bt3 = document.querySelector('#bt3')
         const auth = document.querySelector('#auth')
@@ -294,7 +510,43 @@
         const hid = document.querySelectorAll('#hid')
         const btn = document.querySelectorAll('#btn')
         const month = document.querySelector('.month')
+        const cover = document.querySelector('.cover')
         const Schema = document.querySelector('#Schema')
+
+        us.forEach(element => {
+            element.addEventListener('click', async () => {
+                const username = element.childNodes[5].textContent.trim()
+                const password = element.childNodes[1].value.trim()
+
+                const response = await fetch("/login", {
+                    method: "POST",
+                    headers: { "Content-type": "application/json" },
+                    body: JSON.stringify({
+                        username,
+                        password,
+                    })
+                })
+                let data = await response.json()
+                if (data.success) {
+                    cover.style.display = 'block'
+                    window.location.href = data.redirect;
+                } else {
+                    console.log(data);
+                }
+            })
+        });
+
+        bar.addEventListener('click', () => {
+            bar.style.display = 'none'
+            cover.style.display = 'block'
+            switchAcc.style.display = 'block'
+        })
+
+        mark.addEventListener('click', () => {
+            bar.style.display = 'flex'
+            cover.style.display = 'none'
+            switchAcc.style.display = 'none'
+        })
 
         const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         month.innerHTML = `${months[new Date().getMonth()]}`
@@ -302,38 +554,50 @@
         function copy() {
             const copyText = document.querySelector('#key')
             navigator.clipboard.writeText(copyText.value);
+            mark.click()
             cut.click()
         }
         function copy1() {
             const copyText = document.querySelector('.cod')
             navigator.clipboard.writeText(copyText.textContent);
+            mark.click()
         }
         function copy2() {
             const copyText = document.querySelector('.cod2')
             navigator.clipboard.writeText(copyText.textContent);
+            mark.click()
         }
         function copy3() {
             const copyText = document.querySelector('.cod2')
             navigator.clipboard.writeText(copyText.textContent);
+            mark.click()
         }
 
         cut.addEventListener('click', () => {
             api.style.display = 'none'
             bt3.classList.remove('bg-green-500')
+            mark.click()
         })
 
         bt3.addEventListener('click', () => {
             if (api.style.display == 'none') {
                 api.style.display = 'block'
                 bt3.classList.add('bg-green-500')
+                mark.click()
             } else {
                 api.style.display = 'none'
                 bt3.classList.remove('bg-green-500')
+                mark.click()
             }
         })
 
         btn.forEach(b => {
             b.addEventListener('click', () => {
+                btn[1].childNodes[0].classList.remove('text-yellow-500')
+                btn[2].childNodes[0].classList.remove('text-blue-400')
+                btn[3].childNodes[0].classList.remove('text-red-500')
+                mark.click()
+
                 Schema.style.display = 'none'
                 hid.forEach(h => {
                     h.style.display = 'none';
@@ -343,11 +607,14 @@
 
                 if (b.textContent.trim() == 'Schema API') {
                     Schema.style.display = 'block'
+                    b.childNodes[0].classList.add('text-yellow-500')
 
                 } else if (b.textContent == 'Data Save API') {
                     data.style.display = 'block'
+                    b.childNodes[0].classList.add('text-blue-400')
                 }
                 else if (b.textContent == 'Auth Handle API') {
+                    b.childNodes[0].classList.add('text-red-500')
                     auth.style.display = 'block'
                 }
                 else {

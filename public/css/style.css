@@ -19,17 +19,17 @@ body {
     top: 25px;
     right: 30px;
     border-radius: 6px;
-    background: #000000;
+    background: #571212;
     padding: 20px 35px 20px 25px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     border-left: 8px solid #f44040;
     overflow: hidden;
-    transform: translateX(calc(100% + 30px));
+    transform: translateY(-120px);
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.25, 1.35);
 }
 
 .toast.active {
-    transform: translateX(0);
+    transform: translateY(0);
 }
 
 .toast-content {

@@ -20,7 +20,6 @@ img.addEventListener('change', (e) => {
 });
 
 create.addEventListener("click", async () => {
-    console.log(img.value);
 
     for (const input of inputs) {
         input.classList.remove("border-red-500", "worngAnimation");
@@ -74,3 +73,9 @@ create.addEventListener("click", async () => {
         alert(data.message || "Something went wrong.");
     }
 });
+
+document.addEventListener('keyup', (e) => {
+    if (e.key == 'Enter') {
+        create.click()
+    }
+})

@@ -1,0 +1,22 @@
+{
+  "name": "ok",
+  "fields": [
+    {
+      "name": "data",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "content",
+      "type": "string"
+    },
+    {
+      "name": "post",
+      "type": "string"
+    },
+    {
+      "name": "pubished_at",
+      "type": "number"
+    }
+  ]
+}
