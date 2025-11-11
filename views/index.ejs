@@ -485,11 +485,12 @@
         style="display:none;">
         <p class="text-gray-400 text-lg text-center text-green-400 -mt-2 mb-5 text">Your API Key</p>
 
-        <div class="flex flex-row justify-between w-full border border-green-600 items-center rounded-lg">
+        <div class="flex flex-row justify-between w-full border border-green-600 items-center rounded-lg bordr">
             <input type="text"
-                class="w-[90%] signup-inputs bg-transparent outline-none p-2 text-sm placeholder-gray-400 focus:border-green-400 transition-all duration-200"
+                class="w-[90%] signup-inputs bg-transparent outline-none p-2 text-sm placeholder-gray-400 focus:border-green-400 bordr transition-all duration-200"
                 placeholder="Enter your Username" value="<%= data.apikey %>" id="key" />
-            <button class="border-green-500 border-1 text-xs rounded-sm mr-1 cursor-pointer hover:bg-green-500 px-2 h-7"
+            <button
+                class="border-green-500 border-1 bordr text-xs rounded-sm mr-1 cursor-pointer hover:bg-green-500 px-2 h-7"
                 onclick="copy()">Copy</button>
         </div>
         <p class="cut cursor-pointer"><i class="fa-solid fa-xmark fa-lg"></i></p>
@@ -607,7 +608,7 @@
 
         cut.addEventListener('click', () => {
             api.style.display = 'none'
-            bt3.classList.remove('bg-green-500')
+            bt3.style.backgroundColor = 'transparent'
             mark.click()
         })
 
