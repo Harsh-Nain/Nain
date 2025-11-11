@@ -60,6 +60,8 @@ routes.get('/', islogin, (req, res) => {
         api = read[username]
     }
 
+    console.log(api.fail / api.totalRequest * 100);
+
     const data = db[username];
     if (!data) res.redirect('/login')
 
@@ -102,7 +104,7 @@ routes.post('/login', (req, res) => {
     const us = readuser()
 
     if (!Object.keys(db).includes(username)) return res.json({ success: false, redirect: '/login' });
-console.log(db,us)
+
     if ((password.includes('$') && password.length == 60) && password == db[username].password) {
         const token = jwt.sign({ username }, process.env.sc_key);
         res.cookie('token', token);
