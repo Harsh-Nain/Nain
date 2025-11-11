@@ -59,14 +59,15 @@ routes.get('/', islogin, (req, res) => {
     } else {
         api = read[username]
     }
-
-    console.log('data;',api.fail / api.totalRequest * 100);
-    console.log('data;',api.success / api.totalRequest * 100);
+    const sc = api.success / api.totalRequest * 100
+    sc.toString().split('.')
+    const fa = api.success / api.totalRequest * 100
+    fa.toString().split('.')
 
     const data = db[username];
     if (!data) res.redirect('/login')
 
-    res.render('index', { data, username, api, saved, addeduser, post, total });
+    res.render('index', { data, username, api, fa, sc, saved, addeduser, post, total });
 });
 
 routes.get('/update', islogin, (req, res) => {

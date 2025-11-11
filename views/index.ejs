@@ -352,7 +352,7 @@
             <div class="w-[100%] flex flex-row items-center justify-between mt-5">
                 <h3 class="text-lg">Fail</h3>
                 <p class="text-red-500 font-bold">
-                    <%= api.fail/api.totalRequest*100 || 0%>%
+                    <%= fa || 0 %>%
                 </p>
             </div>
             <p class="text-gray-500 text-sm">Based on fail Request</p>
@@ -362,7 +362,7 @@
                 <div class="w-[100%] flex flex-row items-center justify-between mt-5">
                     <h3 class="text-lg">Success</h3>
                     <p class="text-green-500 font-bold">
-                        <%= api.success/api.totalRequest*100 || 0 %>%
+                        <%= sc || 0 %>%
                     </p>
                 </div>
                 <p class="text-gray-500 text-sm">Based on success Request</p>
