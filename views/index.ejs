@@ -123,6 +123,10 @@
         cursor: pointer;
     }
 
+    .ic{
+        transition: all 0.7s linear;
+    }
+
     #box4,
     .key,
     .bar img,
@@ -162,14 +166,14 @@
 
         <div class="flex flex-col w-full gap-4">
             <button id="btn" class="w-full rounded-xl cursor-pointer p-2 text-left flex flex-row items-center gap-3"><i
-                    class="fa-solid fa-circle-user fa-lg"></i>Profile</button>
+                    class="fa-solid fa-circle-user ic fa-lg"></i>Profile</button>
             <button id="btn" class="w-full cursor-pointer rounded-xl p-2 text-left flex flex-row items-center gap-3"><i
-                    class="fa-solid
+                    class="fa-solid ic
                      fa-database fa-xl"></i> Schema API</button>
             <button id="btn" class="w-full cursor-pointer rounded-xl p-2 text-left flex flex-row items-center gap-3"><i
-                    class="fa-solid fa-file-zipper fa-lg"></i>Data Save API</button>
+                    class="fa-solid fa-file-zipper ic fa-lg"></i>Data Save API</button>
             <button id="btn" class="w-full cursor-pointer rounded-xl p-2 text-left flex flex-row items-center gap-3"><i
-                    class="fa-solid fa-shield fa-lg"></i>Auth Handle API</button>
+                    class="fa-solid fa-shield ic fa-lg"></i>Auth Handle API</button>
         </div>
     </div>
     <div class="bar cursor-pointer flex rounded-xl p-2 w-[20.5%] items-center justify-centre gap-4">
