@@ -18,7 +18,7 @@
 
     .api {
         position: fixed;
-        left: 20%;
+        left: 23%;
         top: 35%;
     }
 
@@ -154,7 +154,7 @@
 <body class="bg-zinc-900 text-white h-screen flex flex-row gap-6 overflow-hidden">
     <div class="cover"></div>
     <div class="bg-zinc-800 p-6 w-[22%] flex flex-col items-center gap-7">
-        <h1 class="text-2xl text-green-500 w-full font-bold text-left">BackCrafter</h1>
+        <h1 class="text-2xl text-green-500 w-full font-bold text-left text">BackCrafter</h1>
 
         <div class="flex flex-col w-full gap-4">
             <button id="btn"
@@ -191,11 +191,11 @@
         </p>
         <div class="flex flex-col gap-8 mb-5">
             <h2 class="text-3xl mt-2 font-semibold text-center">
-                <span class="text-green-500">Your</span> Profile
+                <span class="text-green-500 text">Your</span> Profile
             </h2>
             <div class="flex flex-row gap-7 justify-centre">
                 <div class="flex flex-col">
-                    <div class="rounded-full border-2 cursor-pointer border-green-500 size-23 overflow-hidden">
+                    <div class="rounded-full border-2 cursor-pointer border-green-500 bordr size-23 overflow-hidden">
                         <img src="<%=data.src%>" style="width: 100%;height: 100%; object-fit: cover;" alt="">
                     </div>
                     <%= username %>
@@ -204,7 +204,7 @@
                     <p>
                         <%= data.fullname %>
                     </p>
-                    <p class="text-green-400 text-sm">
+                    <p class="text-green-400 text text-sm">
                         <%= data.email %>
                     </p>
                     <p class="text-gray-400 text-sm">
@@ -220,7 +220,7 @@
             <div class="flex flex-col justify-centre items-center gap-4 ok">
                 <div class="flex flex-col gap-2 w-[100%]">
                     <div id="us"
-                        class="flex cursor-pointer flex-row justify-centre bg-green-800 rounded-full items-center gap-3">
+                        class="flex cursor-pointer flex-row justify-centre bg-green-800 rounded-full items-center bgc gap-3">
                         <input type="hidden" value="<%= addeduser[0] %>">
                         <div class="rounded-full border-2 border-yellow-500 size-12 overflow-hidden">
                             <img src="<%= post[0] %>" style="width: 100%;height: 100%; object-fit: cover;" alt="">
@@ -247,7 +247,7 @@
         </div>
 
         <div class=" flex flex-row items-center justify-centre gap-5">
-            <a id="switch" href="/login" class="hover:bg-green-900 rounded-lg p-2 bg-green-800 cursor-pointer"><i
+            <a id="switch" href="/login" class="hover:bg-green-900 rounded-lg p-2 bg-green-800 cursor-pointer bgc"><i
                     class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i> Add Another
                 Account</a>
             <a href="logout" class="hover:bg-red-900 border-1 border-black p-2 bg-red-800 rounded-lg">logout
@@ -257,7 +257,7 @@
 
     <div id="hid" class="flex flex-col items-center gap-6 justify-between w-[47%] h-screen">
         <div class="flex flex-row items-center gap-4 w-full bg-zinc-800 rounded-xl px-2 py-5 mt-8">
-            <div class="rounded-full border-2 cursor-pointer border-green-500 size-25 overflow-hidden">
+            <div class="rounded-full border-2 cursor-pointer border-green-500 size-25 overflow-hidden bordr">
                 <img src="<%=data.src%>" style="width: 100%;height: 100%; object-fit: cover;" alt="">
             </div>
 
@@ -265,7 +265,7 @@
                 <h1 class="text-2xl font-bold">
                     <%= username %>
                 </h1>
-                <h2 class="text-green-500">
+                <h2 class="text-green-500 text">
                     <%=data.email %>
                 </h2>
                 <p class="flex flex-row gap-2 text-sm text-gray-500 items-center"><i class="fa-solid fa-phone fa-mg"
@@ -274,7 +274,7 @@
                 <p class="flex flex-row gap-2 text-sm text-gray-500 items-center">
                     <%= data.fullname %>
                 </p>
-                <button id="bt3" class="bt3 border-2 border-green-500 rounded-lg h-7 w-7 cursor-pointer text-xs">
+                <button id="bt3" class="bt3 border-2 border-green-500 bordr rounded-lg h-7 w-7 cursor-pointer text-xs">
                     <p class="key">🗝️</p>
                 </button>
             </div>
@@ -312,7 +312,7 @@
         </div>
 
         <div class="flex flex-col bg-zinc-800 py-3 px-5 rounded-xl gap-5 w-full mt-3">
-            <h3 class="text-lg w-full border-b-2 border-green-500">All Requests :-</h3>
+            <h3 class="text-lg w-full border-b-2 border-green-500 bordr">All Requests :-</h3>
             <div class=" flex-col flex  h-38 mb-10 overflow-y-scroll gap-10"
                 style="scrollbar-width: none;-ms-overflow-style:none">
 
@@ -327,11 +327,11 @@
                                         </p>
                                         <% let color=null%>
                                             <% if (info.responseStatus=='Success' ) { %>
-                                                <% color='green' %>
+                                                <% color='text' %>
                                                     <% } else {%>
-                                                        <% color='red' %>
+                                                        <% color='text-red-500' %>
                                                             <%} %>
-                                                                <p class="text-<%= color %>-500 font-bold">
+                                                                <p class="<%= color %> font-bold">
                                                                     <%= info.statuscode %>
                                                                 </p>
                                     </div>
@@ -344,7 +344,7 @@
 
     <div id="hid"
         class="flex flex-col w-[25%] h-fitcontent mt-8 rounded-xl justify-centre items-center p-4 bg-zinc-800">
-        <div class="w-[100%] flex flex-row items-center justify-between border-b-2 border-green-500 ">
+        <div class="w-[100%] flex flex-row items-center justify-between border-b-2 border-green-500 bordr">
             <h3 class="text-2xl">Statistics</h3>
             <p class="month"></p>
         </div>
@@ -361,7 +361,7 @@
             <div class="flex-col flex w-full gap-1">
                 <div class="w-[100%] flex flex-row items-center justify-between mt-5">
                     <h3 class="text-lg">Success</h3>
-                    <p class="text-green-500 font-bold">
+                    <p class="text-green-500 font-bold text">
                         <%= sc || 0 %>%
                     </p>
                 </div>
@@ -481,9 +481,9 @@
 
     </div>
 
-    <div class="flex flex-col api items-center bg-zinc-800 w-[50%] p-8 rounded-2xl border border-green-500 shadow-[0_0_10px_#00ff88]"
+    <div class="flex flex-col api items-center bg-zinc-800 w-[50%] p-8 rounded-2xl border border-green-500 bordr shadow-[0_0_10px_#00ff88]"
         style="display:none;">
-        <p class="text-gray-400 text-lg text-center text-green-400 -mt-2 mb-5">Your API Key</p>
+        <p class="text-gray-400 text-lg text-center text-green-400 -mt-2 mb-5 text">Your API Key</p>
 
         <div class="flex flex-row justify-between w-full border border-green-600 items-center rounded-lg">
             <input type="text"
@@ -503,6 +503,7 @@
         const bar = document.querySelector('.bar')
         const barclick = document.querySelector('#barclick')
         const mark = document.querySelector('#mark')
+        const box4 = document.querySelectorAll('#box4')
         const cut = document.querySelector('.cut')
         const bt3 = document.querySelector('#bt3')
         const auth = document.querySelector('#auth')
@@ -511,7 +512,38 @@
         const btn = document.querySelectorAll('#btn')
         const month = document.querySelector('.month')
         const cover = document.querySelector('.cover')
+        const text = document.querySelectorAll('.text')
+        const bgc = document.querySelectorAll('.bgc')
+        const bordr = document.querySelectorAll('.bordr')
         const Schema = document.querySelector('#Schema')
+        let color = 'green'
+
+        box4.forEach(b => {
+            b.addEventListener('click', () => {
+                if (b == box4[0]) {
+                    color = 'var(--color-yellow-500)'
+                }
+                if (b == box4[1]) {
+                    color = 'var(--color-blue-400)'
+                }
+                if (b == box4[2]) {
+                    color = 'var(--color-red-400)'
+                }
+                if (b == box4[3]) {
+                    color = 'var(--color-green-500)'
+                }
+                document.querySelector('#btn').style.backgroundColor = color
+                let i = 0
+                bordr.forEach(bb => {
+                    text[i].style.color = color || ''
+                    bb.style.borderColor = color
+                    if (bgc[i]) {
+                        bgc[i].style.backgroundColor = color
+                    }
+                    i++
+                });
+            })
+        });
 
         us.forEach(element => {
             element.addEventListener('click', async () => {
@@ -582,11 +614,11 @@
         bt3.addEventListener('click', () => {
             if (api.style.display == 'none') {
                 api.style.display = 'block'
-                bt3.classList.add('bg-green-500')
+                bt3.style.backgroundColor = color
                 mark.click()
             } else {
                 api.style.display = 'none'
-                bt3.classList.remove('bg-green-500')
+                bt3.style.backgroundColor = 'transparent'
                 mark.click()
             }
         })
@@ -625,12 +657,12 @@
                 btn.forEach(b => {
                     b.style.backgroundColor = 'transparent'
                 });
-                b.style.backgroundColor = 'green'
+                b.style.backgroundColor = color
             })
         });
 
         window.onload = () => {
-            document.querySelector('#btn').style.backgroundColor = 'green'
+            document.querySelector('#btn').style.backgroundColor = color
         }
 
     </script>

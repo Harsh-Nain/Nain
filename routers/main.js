@@ -60,7 +60,7 @@ routes.get('/', islogin, (req, res) => {
         api = read[username]
     }
     const s = api.success / api.totalRequest * 100
-    const sc  = s.toString().split('.')[0]
+    const sc = s.toString().split('.')[0]
     const f = api.fail / api.totalRequest * 100
     const fa = f.toString().split('.')[0]
 
