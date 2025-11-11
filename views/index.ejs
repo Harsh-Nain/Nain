@@ -93,6 +93,10 @@
         transition: all 0.2s linear;
     }
 
+    #btn:hover {
+        background-color: rgb(55, 55, 55);
+    }
+
     .cover {
         width: 100%;
         height: 100vh;
@@ -157,18 +161,14 @@
         <h1 class="text-2xl text-green-500 w-full font-bold text-left text">BackCrafter</h1>
 
         <div class="flex flex-col w-full gap-4">
-            <button id="btn"
-                class="w-full rounded-xl cursor-pointer hover:bg-[green] p-2 text-left flex flex-row items-center gap-3"><i
+            <button id="btn" class="w-full rounded-xl cursor-pointer p-2 text-left flex flex-row items-center gap-3"><i
                     class="fa-solid fa-circle-user fa-lg"></i>Profile</button>
-            <button id="btn"
-                class="w-full cursor-pointer rounded-xl hover:bg-[green] p-2 text-left flex flex-row items-center gap-3"><i
+            <button id="btn" class="w-full cursor-pointer rounded-xl p-2 text-left flex flex-row items-center gap-3"><i
                     class="fa-solid
                      fa-database fa-xl"></i> Schema API</button>
-            <button id="btn"
-                class="w-full cursor-pointer rounded-xl hover:bg-[green] p-2 text-left flex flex-row items-center gap-3"><i
+            <button id="btn" class="w-full cursor-pointer rounded-xl p-2 text-left flex flex-row items-center gap-3"><i
                     class="fa-solid fa-file-zipper fa-lg"></i>Data Save API</button>
-            <button id="btn"
-                class="w-full cursor-pointer rounded-xl hover:bg-[green] p-2 text-left flex flex-row items-center gap-3"><i
+            <button id="btn" class="w-full cursor-pointer rounded-xl p-2 text-left flex flex-row items-center gap-3"><i
                     class="fa-solid fa-shield fa-lg"></i>Auth Handle API</button>
         </div>
     </div>
@@ -356,7 +356,8 @@
                 </p>
             </div>
             <p class="text-gray-500 text-sm">Based on fail Request</p>
-            <p class="p-2 text-xs text-center w-[90%] text-gray-500 bg-gray-800 rounded-lg">[Graph Placeholder - Neon
+            <p class="p-2 text-xs text-center w-[90%] text-gray-500 bg-gray-800 rounded-lg">[Graph Placeholder -
+                Neon
                 Red Line]</p>
             <div class="flex-col flex w-full gap-1">
                 <div class="w-[100%] flex flex-row items-center justify-between mt-5">
@@ -374,11 +375,13 @@
     </div>
 
     <div class="flex flex-col w-[75%] gap-10" id="Schema">
-        <h1 class="text-3xl mt-5 text-green-500 flex border-b-2 border-white flex-row gap-3 items-center font-bold"><i
-                class="fa-solid fa-wrench fa-sm" style="color: #ffffff;"></i>Schema Api Management </h1>
+        <h1 class="text-3xl mt-5 text-green-500 flex border-b-2 border-white flex-row gap-3 items-center font-bold">
+            <i class="fa-solid fa-wrench fa-sm" style="color: #ffffff;"></i>Schema Api Management
+        </h1>
         <div>
             <h2 class="text-green-300 mt-10 text-xl">API Name : Create Collention Schema</h2>
-            <p>Decription Define a new data Collention (e.g.,'products','post') and its fields using a JSON payload.</p>
+            <p>Decription Define a new data Collention (e.g.,'products','post') and its fields using a JSON payload.
+            </p>
         </div>
 
 
@@ -410,11 +413,13 @@
     </div>
 
     <div class="flex flex-col w-[75%] gap-10" id="data">
-        <h1 class="text-3xl mt-5 text-green-500 flex border-b-2 border-white flex-row gap-3 items-center font-bold"><i
-                class="fa-solid fa-server fa-xs" style="color: #ffffff;"></i>Data Save API</h1>
+        <h1 class="text-3xl mt-5 text-green-500 flex border-b-2 border-white flex-row gap-3 items-center font-bold">
+            <i class="fa-solid fa-server fa-xs" style="color: #ffffff;"></i>Data Save API
+        </h1>
         <div>
             <h2 class="text-green-300 mt-10 text-xl">API Name : Create Collention Data Base</h2>
-            <p>Decription Define a new data Collention (e.g.,'products','post') and its fields using a JSON payload.</p>
+            <p>Decription Define a new data Collention (e.g.,'products','post') and its fields using a JSON payload.
+            </p>
         </div>
 
 
@@ -446,11 +451,13 @@
     </div>
 
     <div class="flex flex-col w-[75%] gap-10" id="auth">
-        <h1 class="text-3xl mt-5 text-green-500 flex border-b-2 border-white flex-row gap-3 items-center font-bold"><i
-                class="fa-solid fa-wand-sparkles fa-xs" style="color: #ffffff;"></i>Auth Handle API</h1>
+        <h1 class="text-3xl mt-5 text-green-500 flex border-b-2 border-white flex-row gap-3 items-center font-bold">
+            <i class="fa-solid fa-wand-sparkles fa-xs" style="color: #ffffff;"></i>Auth Handle API
+        </h1>
         <div>
             <h2 class="text-green-300 mt-10 text-xl">API Name : Create Collention Auth Handle</h2>
-            <p>Decription Define a new data Collention (e.g.,'products','post') and its fields using a JSON payload.</p>
+            <p>Decription Define a new data Collention (e.g.,'products','post') and its fields using a JSON payload.
+            </p>
         </div>
 
 
@@ -625,10 +632,20 @@
         })
 
         btn.forEach(b => {
+
+            b.addEventListener('mousemove', () => {
+                if (b == btn[1]) btn[1].childNodes[0].style.transform = 'rotatey(180deg)'
+                if (b == btn[2]) btn[2].childNodes[0].style.transform = 'rotatey(180deg)'
+                if (b == btn[3]) btn[3].childNodes[0].style.transform = 'rotatey(180deg)'
+            })
+
+            b.addEventListener('mouseleave', () => {
+                btn[1].childNodes[0].style.transform = 'rotatey(0deg)'
+                btn[2].childNodes[0].style.transform = 'rotatey(0deg)'
+                btn[3].childNodes[0].style.transform = 'rotatey(0deg)'
+            })
+
             b.addEventListener('click', () => {
-                btn[1].childNodes[0].classList.remove('text-yellow-500')
-                btn[2].childNodes[0].classList.remove('text-blue-400')
-                btn[3].childNodes[0].classList.remove('text-red-500')
                 mark.click()
 
                 Schema.style.display = 'none'
