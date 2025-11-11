@@ -59,10 +59,10 @@ routes.get('/', islogin, (req, res) => {
     } else {
         api = read[username]
     }
-    const sc = api.success / api.totalRequest * 100
-    sc.toString().split('.')[0] 
-    const fa = api.fail / api.totalRequest * 100
-    fa.toString().split('.')[0] 
+    const s = api.success / api.totalRequest * 100
+    const sc  = s.toString().split('.')[0]
+    const f = api.fail / api.totalRequest * 100
+    const fa = f.toString().split('.')[0]
 
     const data = db[username];
     if (!data) res.redirect('/login')
