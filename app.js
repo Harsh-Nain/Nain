@@ -7,7 +7,7 @@ const mainRouter = require('./routers/main.js');
 const authRouter = require('./routers/auth.js');
 const schemRouter = require('./routers/schema.js');
 
-const PORT = process.env.PORT || 7000;
+const PORT = process.env.PORT || 8080;
 require("dotenv").config();
 
 app.use(cookieParser())
@@ -21,4 +21,6 @@ app.use('/', mainRouter);
 app.use('/Auth', authRouter);
 app.use('/api/schema', schemRouter);
 
-app.listen(PORT);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server started at 0.0.0.0:${PORT}`);
+});
