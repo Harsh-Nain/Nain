@@ -60,7 +60,7 @@ routes.get('/', islogin, (req, res) => {
         api = read[username]
     }
 
-    console.log(api.fail / api.totalRequest * 100);
+    console.log('lk,mclkdm;',api.fail / api.totalRequest * 100);
 
     const data = db[username];
     if (!data) res.redirect('/login')
