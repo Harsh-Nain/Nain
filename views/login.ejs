@@ -35,12 +35,19 @@
         -webkit-text-fill-color: white;
         transition: background-color 5000s ease-in-out 0s;
     }
+
+    @media screen and (max-width:500px) {
+        .bord {
+            border: none;
+            box-shadow: none;
+        }
+    }
 </style>
 
 <body class="overflow-hidden">
     <div class="w-full h-screen bg-zinc-900 text-white flex justify-center items-center">
         <div
-            class="flex flex-col items-center gap-5 w-[550px] py-8 px-6 rounded-2xl border border-green-500 shadow-[0_0_10px_#00ff88]">
+            class="flex flex-col items-center bord gap-5 w-[550px] py-8 px-6 rounded-2xl border border-green-500 shadow-[0_0_10px_#00ff88]">
             <h2 class="text-3xl font-semibold text-center">
                 <span class="text-green-500">Login</span> your
                 <span class="text-green-500">Account</span>
