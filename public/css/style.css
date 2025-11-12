@@ -16,7 +16,7 @@ body {
 .toast {
     color: white;
     position: fixed;
-    top: 25px;
+    top: 0;
     right: 30px;
     border-radius: 6px;
     background: #571212;
