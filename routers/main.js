@@ -47,12 +47,12 @@ routes.get('/', islogin, (req, res) => {
     let post = []
     let dat = {}
 
-    saved.slice(-2).forEach(element => {
-        addeduser.push(db[element].password);
-        post.push(db[element].src);
-        dat[element] = { save: true }
-    })
-    saveuser(dat)
+    // saved.slice(-2).forEach(element => {
+    //     addeduser.push(db[element].password);
+    //     post.push(db[element].src);
+    //     dat[element] = { save: true }
+    // })
+    saveuser(saved)
 
     if (!read[username]) {
         api = read['guest']

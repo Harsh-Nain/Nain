@@ -32,7 +32,8 @@
         position: absolute;
         transition: all 0.7s linear;
         overflow: hidden;
-        top: 46%;
+        right: 25%;
+        top: 23%;
     }
 
     .cut {
@@ -156,11 +157,352 @@
     .ok:hover .rotate {
         transform: rotate(180deg);
     }
+
+    .moveright {
+        display: none;
+    }
+
+    @media screen and (min-width:770px) {
+        #cut {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width:770px) {
+        .rightbox {
+            width: 35%;
+        }
+
+        #switchAcc {
+            width: 50%;
+        }
+
+        .idd {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bt3 {
+            right: 40%;
+            top: 23%;
+        }
+
+        body {
+            gap: 12px;
+        }
+
+        .userinfo {
+            width: 60%;
+            margin-left: 12px;
+            gap: 10px;
+        }
+
+        .rightbar {
+            position: fixed;
+            transform: translateX(-100%);
+            transition: all 0.7s linear;
+            width: 30%;
+            height: 100vh;
+            z-index: 10;
+        }
+
+        .boxs4 {
+            flex-wrap: wrap;
+        }
+
+        .usrd {
+            margin: 12px;
+        }
+
+        #box4 {
+            width: 47%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            height: fit-content;
+        }
+
+        .moveright {
+            position: fixed;
+            left: 10px;
+            top: 10px;
+            display: block;
+        }
+
+        .scrol {
+            height: 70px;
+        }
+
+        .lines {
+            gap: 15px;
+        }
+
+        .bar {
+            position: absolute;
+            width: 90%;
+            margin-left: 7px;
+        }
+    }
+
+    @media screen and (max-width:500px) {
+
+        .userdta,
+        .scroldiv {
+            transform: translateX(73px);
+            width: 400px;
+        }
+
+        #switchAcc {
+            z-index: 12;
+            width: 100%;
+            position: fixed;
+            left: 0;
+            height: 100vh;
+            display: none;
+            top: 0;
+        }
+
+        .idd {
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+        }
+
+        .size {
+            font-size: 20px;
+            width: 130px;
+        }
+
+        .moveright {
+            z-index: 1;
+        }
+
+        .rightbar {
+            width: 60%;
+        }
+
+        .bt3 {
+            right: 10px;
+            bottom: 10px;
+            top: auto;
+        }
+
+        body {
+            overflow: scroll;
+        }
+
+        .boxs4 {
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        #box4 {
+            width: 75%;
+        }
+
+        .rightbox {
+            width: 50%;
+            transform: translate(-70px, 170px);
+            height: 65vh;
+        }
+
+        .logbtn {
+            display: block;
+            justify-content: center;
+            align-items: center;
+            gap: 2px;
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width:400px) {
+
+        .userdta,
+        .scroldiv {
+            transform: translateX(65px);
+            width: 360px;
+        }
+
+        .rightbar {
+            width: 100%;
+        }
+
+        .moveright {
+            z-index: 1;
+        }
+
+        .bt3 {
+            right: 10px;
+            bottom: 10px;
+            top: auto;
+        }
+
+        body {
+            overflow: scroll;
+        }
+
+        .boxs4 {
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        #switchAcc {
+            z-index: 12;
+            width: 100%;
+            position: fixed;
+            left: 0;
+            height: 100vh;
+            top: 0;
+        }
+
+        .idd {
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+        }
+
+        .smn {
+            display: none;
+        }
+
+        .size {
+            width: 77px;
+            font-size: 17px;
+        }
+
+        #box4 {
+            width: 90%;
+        }
+
+        .logbtn {
+            transform: translateY(100px);
+            display: block;
+            justify-content: center;
+            align-items: center;
+            gap: 2px;
+            width: 100%;
+        }
+
+        #box4:nth-child(1),
+        #box4:nth-child(4) {
+            width: 355px;
+        }
+
+        .rightbox {
+            width: 50%;
+            transform: translate(-32px, 250px);
+            height: 30vh;
+        }
+    }
+
+    @media screen and (max-width:330px) {
+
+        .userdta,
+        .scroldiv {
+            transform: translateX(52px);
+            width: 300px;
+        }
+
+        .moveright {
+            z-index: 1;
+        }
+
+        #switchAcc {
+            z-index: 12;
+            width: 100%;
+            position: fixed;
+            left: 0;
+            height: 100vh;
+            display: none;
+            top: 0;
+        }
+
+        .bt3 {
+            right: 10px;
+            bottom: 10px;
+            top: auto;
+        }
+
+        body {
+            overflow: scroll;
+        }
+
+        #switch {
+            width: -webkit-fill-available;
+        }
+
+        .boxs4 {
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .imp div {
+            height: 23vh;
+            width: 23vh;
+        }
+
+        .imp {
+            font-size: 1.3rem;
+            font-family: cursive;
+        }
+
+        .nameinfo {
+            text-align: center;
+        }
+
+        .nameinfo p {
+            font-size: 1rem;
+        }
+
+        .phone {
+            font-size: 0.7rem;
+        }
+
+        .smn {
+            display: none;
+        }
+
+        .bt4 {
+            top: auto;
+            left: 44%;
+            bottom: 22%;
+        }
+
+        .out {
+            width: 118px;
+        }
+
+        #box4 {
+            width: 80%;
+        }
+
+        #box4:nth-child(1),
+        #box4:nth-child(4) {
+            width: 300px;
+        }
+
+        .rightbox {
+            width: 50%;
+            transform: translate(-54px, 250px);
+            height: 33vh;
+        }
+    }
 </style>
 
 <body class="bg-zinc-900 text-white h-screen flex flex-row gap-6 overflow-hidden">
+    <p class="moveright cursor-pointer"><i class="fa-solid fa-square-caret-down fa-rotate-270 fa-xl"
+            style="color: #ffffff;"></i></p>
     <div class="cover"></div>
-    <div class="bg-zinc-800 p-6 w-[22%] flex flex-col items-center gap-7">
+    <div class="bg-zinc-800 rightbar p-6 w-[22%] flex flex-col items-center gap-7">
+        <p id="cut" class="cursor-pointer w-7 absolute right-1 top-1"><i
+                class="fa-solid fa-xmark hover:text-red-700"></i>
+
         <h1 class="text-2xl text-green-500 w-full font-bold text-left text">BackCrafter</h1>
 
         <div class="flex flex-col w-full gap-4">
@@ -173,16 +515,17 @@
             <button id="btn" class="w-full cursor-pointer rounded-xl p-2 text-left flex flex-row items-center gap-3"><i
                     class="fa-solid fa-shield fa-lg"></i>Auth Handle API</button>
         </div>
-    </div>
-    <div class="bar cursor-pointer flex rounded-xl p-2 w-[20.5%] items-center justify-centre gap-4">
-        <div class="rounded-full border-1 border-black size-12 overflow-hidden">
-            <img src="<%= data.src %>" style="width: 100%;height: 100%; object-fit: cover;" alt="">
-        </div>
-        <div class="flex flex-col">
-            <h1 class="text-lg font-bold">
-                <%= username %>
-            </h1>
-            <p class="text-sm text-yellow-400">Premium</p>
+
+        <div class="bar cursor-pointer flex rounded-xl p-2 w-[20.5%] items-center justify-centre gap-4">
+            <div class="rounded-full border-1 border-black size-12 overflow-hidden">
+                <img src="<%= data.src %>" style="width: 100%;height: 100%; object-fit: cover;" alt="">
+            </div>
+            <div class="flex flex-col">
+                <h1 class="text-lg font-bold">
+                    <%= username %>
+                </h1>
+                <p class="text-sm text-yellow-400">Premium</p>
+            </div>
         </div>
     </div>
 
@@ -191,25 +534,25 @@
 
         <p id="mark" class="cursor-pointer w-7"><i class="fa-solid fa-xmark hover:text-red-700"></i>
         </p>
-        <div class="flex flex-col gap-8 mb-5">
+        <div class="flex flex-col gap-2 mb-5">
             <h2 class="text-3xl mt-2 font-semibold text-center">
                 <span class="text-green-500 text">Your</span> Profile
             </h2>
-            <div class="flex flex-row gap-7 justify-centre">
-                <div class="flex flex-col">
+            <div class="flex flex-col gap-2 idd justify-centre">
+                <div class="flex flex-col imp items-center font-[cursive]">
                     <div class="rounded-full border-2 cursor-pointer border-green-500 bordr size-23 overflow-hidden">
                         <img src="<%=data.src%>" style="width: 100%;height: 100%; object-fit: cover;" alt="">
                     </div>
                     <%= username %>
                 </div>
-                <div class="flex flex-col text-left mt-3 ">
+                <div class="flex flex-col text-center nameinfo">
                     <p>
                         <%= data.fullname %>
                     </p>
                     <p class="text-green-400 text text-sm">
                         <%= data.email %>
                     </p>
-                    <p class="text-gray-400 text-sm">
+                    <p class="text-gray-400 phone text-sm">
                         <i class="fa-solid fa-phone fa-sm" style="color: #ffffff;"></i> +91
                         <%= data.number %>
                     </p>
@@ -219,8 +562,8 @@
                     </a>
                 </div>
             </div>
-            <div class="flex flex-col justify-centre items-center gap-4 ok">
-                <!-- <div class="flex flex-col gap-2 w-[100%]">
+            <!-- <div class="flex flex-col justify-centre items-center gap-4 ok">/ -->
+            <!-- <div class="flex flex-col gap-2 w-[100%]">
                     <div id="us"
                         class="flex cursor-pointer flex-row justify-centre bg-green-800 rounded-full items-center bgc gap-3">
                         <input type="hidden" value=" addeduser[0] %>">
@@ -230,34 +573,34 @@
                         <h1 class="text-xl font-bold"> saved[0] %></h1>
                     </div>
                 </div> -->
-                <!-- <i class="fa-solid fa-repeat rotate fa-lg" style="color: #ffffff;"></i> -->
-                <div class="flex flex-col gap-2 w-[100%]">
+            <!-- <i class="fa-solid fa-repeat rotate fa-lg" style="color: #ffffff;"></i> -->
+            <!-- <div class="flex flex-col gap-2 w-[100%]">
                     <div id="us"
                         class="flex flex-row cursor-pointer justify-centre bg-gray-800 rounded-full items-center gap-3">
-                        <input type="hidden" value="<%= addeduser[1] %>">
+                        <input type="hidden" value=" addeduser[1] %>">
                         <div class="rounded-full border-2 border-yellow-500 size-12 overflow-hidden">
-                            <img src="<%= post[1] %>" style="width: 100%;height: 100%; object-fit: cover;" alt="">
+                            <img src=" post[1] %>" style="width: 100%;height: 100%; object-fit: cover;" alt="">
                         </div>
                         <h1 class="text-xl font-bold">
-                            <%= saved[1] %>
+                             saved[1] %>
                         </h1>
                     </div>
-                </div>
-            </div>
+                </div> -->
+            <!-- </div> -->
         </div>
 
-        <div class=" flex flex-row items-center justify-centre gap-5">
+        <div class=" flex flex-row items-center logbtn justify-centre gap-5">
             <a id="switch" href="/login" class="hover:bg-green-900 rounded-lg p-2 bg-green-800 cursor-pointer bgc"><i
                     class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i> Add Another
                 Account</a>
-            <a href="logout" class="hover:bg-red-900 border-1 border-black p-2 bg-red-800 rounded-lg">logout
+            <a href="logout" class="out hover:bg-red-900 border-1 border-black p-2 bg-red-800 rounded-lg">logout
                 <i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a>
         </div>
     </div>
 
-    <div id="hid" class="flex flex-col items-center gap-6 justify-between w-[47%] h-screen">
-        <div class="flex flex-row items-center gap-4 w-full bg-zinc-800 rounded-xl px-2 py-5 mt-8">
-            <div class="rounded-full border-2 cursor-pointer border-green-500 size-25 overflow-hidden bordr">
+    <div id="hid" class="flex userinfo flex-col items-center gap-6 justify-between w-[47%] h-screen">
+        <div class="flex flex-row usrd items-center userdta gap-4 w-full bg-zinc-800 rounded-xl px-2 py-5 mt-8">
+            <div class="rounded-full border-2  cursor-pointer border-green-500 size-25 overflow-hidden bordr">
                 <img src="<%=data.src%>" style="width: 100%;height: 100%; object-fit: cover;" alt="">
             </div>
 
@@ -280,7 +623,7 @@
             </div>
         </div>
 
-        <div class="flex flex-row gap-6 w-full justify-between mt-2">
+        <div class="flex flex-row boxs4 gap-6 w-full justify-between mt-2">
             <div id="box4"
                 class="flex-col border-2 border-yellow-500 flex justify-centre rounded-xl bg-zinc-800 gap-2 p-4 size-30">
                 <h1 class="text-yellow-500 font-bold text-xl">
@@ -311,12 +654,12 @@
             </div>
         </div>
 
-        <div class="flex flex-col bg-zinc-800 py-3 px-5 rounded-xl gap-5 w-full mt-3">
+        <div class="flex flex-col bg-zinc-800 py-3 scroldiv px-5 rounded-xl gap-5 w-full mt-3">
             <h3 class="text-lg w-full border-b-2 border-green-500 bordr">All Requests :-</h3>
-            <div class=" flex-col flex  h-38 mb-10 overflow-y-scroll gap-10"
+            <div class=" flex-col flex scrol  h-38 mb-10 overflow-y-scroll gap-10"
                 style="scrollbar-width: none;-ms-overflow-style:none">
 
-                <div class="flex flex-col gap-10 items-center w-full justify-between">
+                <div class="flex flex-col lines gap-5 items-center w-full justify-between">
                     <% let i=0 %>
                         <% if (api.activities) { %>
                             <% api.activities.forEach(info=> {%>
@@ -343,9 +686,9 @@
     </div>
 
     <div id="hid"
-        class="flex flex-col w-[25%] h-fitcontent mt-8 rounded-xl justify-centre items-center p-4 bg-zinc-800">
+        class="flex rightbox usrd flex-col w-[25%] h-fitcontent mt-8 rounded-xl justify-centre items-center p-4 bg-zinc-800">
         <div class="w-[100%] flex flex-row items-center justify-between border-b-2 border-green-500 bordr">
-            <h3 class="text-2xl">Statistics</h3>
+            <h3 class="size text-2xl">Statistics</h3>
             <p class="month"></p>
         </div>
         <div class="flex-col flex w-full gap-1">
@@ -355,8 +698,8 @@
                     <%= fa || 0 %>%
                 </p>
             </div>
-            <p class="text-gray-500 text-sm">Based on fail Request</p>
-            <p class="p-2 text-xs text-center w-[90%] text-gray-500 bg-gray-800 rounded-lg">[Graph Placeholder -
+            <p class="text-gray-500 smn text-sm">Based on fail Request</p>
+            <p class="p-2 text-xs text-center smn w-[90%] text-gray-500 bg-gray-800 rounded-lg">[Graph Placeholder -
                 Neon
                 Red Line]</p>
             <div class="flex-col flex w-full gap-1">
@@ -366,8 +709,8 @@
                         <%= sc || 0 %>%
                     </p>
                 </div>
-                <p class="text-gray-500 text-sm">Based on success Request</p>
-                <p class="p-2 text-xs text-center w-[90%] text-gray-500 bg-gray-800 rounded-lg">[Graph Placeholder -
+                <p class="text-gray-500 smn text-sm">Based on success Request</p>
+                <p class="p-2 text-xs smn text-center w-[90%] text-gray-500 bg-gray-800 rounded-lg">[Graph Placeholder -
                     Neon
                     Green Line]</p>
             </div>
@@ -524,6 +867,17 @@
         const bgc = document.querySelectorAll('.bgc')
         const bordr = document.querySelectorAll('.bordr')
         const Schema = document.querySelector('#Schema')
+        const moveright = document.querySelector('.moveright')
+        const rightb = document.querySelector('.rightbar')
+        const cutt = document.querySelector('#cut')
+
+        moveright.addEventListener('click', () => {
+            rightb.style.transform = 'translateX(0%)'
+        })
+
+        cutt.addEventListener('click', () => {
+            rightb.style.transform = 'translateX(-100%)'
+        })
         let color = 'green'
 
         box4.forEach(b => {
@@ -588,7 +942,7 @@
             switchAcc.style.display = 'none'
         })
 
-        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
         month.innerHTML = `${months[new Date().getMonth()]}`
 
         function copy() {
