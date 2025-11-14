@@ -1,13 +1,4 @@
 {
-    "Tony7190": {
-        "fullname": "Tony Stark",
-        "password": "$2b$10$We6IyHXR6IXxikDdfgOL.eAkePDqBHQ4PxnzB1Xsh.ix7C7pWK44K",
-        "email": "nainh952@gmail.com",
-        "number": "0987654321",
-        "appname": "Nains",
-        "apikey": "U2FsdGVkX1+X6B/D7182/ZJdaZ1NtW5X9WpYirgr6yo=",
-        "src": "uploads\\image-1761288508445-Sidhu MooseWala ð.jpeg"
-    },
     "Harsh8105": {
         "fullname": "Harsh Nain",
         "password": "$2b$10$lIbyueMs6MrFXuyi9I4Lw.lWTVJtXxAeE/AYXV7SK8QnJY37Ib76O",
@@ -40,41 +31,5 @@
         "appname": "Never",
         "apikey": "U2FsdGVkX19SJLb6hW2nCnM7wpJR+Tk28XYxBivHY9o=",
         "src": "uploads\\image-1761296659497-Screenshot 2025-10-24 143300.png"
-    },
-    "Harsh4961": {
-        "fullname": "Harsh Nain",
-        "password": "$2b$10$liSLBHM5bjlLXN7omzjxo.cTWHVapezxCeCt.sQkfkurLiWFUaSji",
-        "email": "nainh952@gmail.com",
-        "number": "0987654321",
-        "appname": "Nain",
-        "apikey": "U2FsdGVkX19D4RFfY9UJLrXzUugTmfLzJ5z+ZE6aAJI=",
-        "src": "uploads\\image-1761368294922-download.png"
-    },
-    "Harsh8792": {
-        "fullname": "Harsh Nain",
-        "password": "$2b$10$JMyskfX.4GO.lLi1EoKaLO289m/fonES5SG8MH/CJfDxI5L4wDU4a",
-        "email": "starkt952@gmail.com",
-        "number": "0987654321",
-        "appname": "Nains",
-        "apikey": "U2FsdGVkX1+f3rlNm5UByeLfgTFbjGVgZkZysQCIym0=",
-        "src": "uploads\\image-1762320189875-download.png"
-    },
-    "Harsh9274": {
-        "fullname": "Harsh Nain",
-        "password": "$2b$10$AC7jEGOQdAACzgm2rNjr/uEZQDZBgTSoZ7OF0ar5R7r.WPNFYpWMy",
-        "email": "starkt952@gmail.com",
-        "number": "0987654321",
-        "appname": "Nains",
-        "apikey": "U2FsdGVkX18IcS4hwWoL66at5DMMMjIvCgwXEEVtKaA=",
-        "src": "uploads\\image-1762402910764-download.png"
-    },
-    "Tony3399": {
-        "fullname": "Tony",
-        "password": "$2b$10$N9UOX9tfCIC5V1sLzNOA/ewfUlvCp41i03nA8Xj3K4piFVvSo4mVu",
-        "email": "starkt952@gmail.com",
-        "number": "1234567890",
-        "appname": "Stark Industrys",
-        "apikey": "U2FsdGVkX18cvsKf76KGIG+c65VpxxmYXVcStg5zjJk=",
-        "src": "uploads\\image-1762572878861-Screenshot 2025-10-24 143300.png"
     }
 }

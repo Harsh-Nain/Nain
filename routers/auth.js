@@ -6,7 +6,7 @@ const cryptoJs = require("crypto-js");
 const multer = require("multer")
 
 const { createDir, createusername } = require("../utils/authManger");
-const { saveDb, maindb, readuser, saveuser } = require("../config/dbManager");
+const { saveDb, maindb } = require("../config/dbManager");
 const { generateOtp, sendMail } = require("../utils/otp-manager");
 let otpStore = {};
 
@@ -87,9 +87,6 @@ routes.post("/verifyotp", async (req, res) => {
 
         let result = saveDb(db);
         let result2 = createDir(data.username);
-        const read = readuser()
-        read[data.username] = { save: true }
-        saveuser(read)
 
         if (result && result2) delete otpStore[email];
 

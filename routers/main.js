@@ -93,7 +93,6 @@ routes.get('/logout', (req, res) => {
 routes.post('/login', (req, res) => {
     const { username, password } = req.body;
     const db = maindb();
-    const us = readuser()
 
     if (!Object.keys(db).includes(username)) return res.json({ success: false, redirect: '/login' });
 
@@ -106,8 +105,6 @@ routes.post('/login', (req, res) => {
     bcrypt.compare(password, db[username].password, (err, result) => {
         if (err || !result) return res.json({ success: false, redirect: '/login' });
 
-        us[username] = { save: true }
-        saveuser(us)
         const token = jwt.sign({ username }, process.env.sc_key);
         res.cookie('token', token);
         res.json({ success: true, redirect: '/' });
