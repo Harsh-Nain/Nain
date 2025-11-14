@@ -24,6 +24,7 @@ const upload = multer({ storage: storage })
 routes.get('/', islogin, (req, res) => {
     const username = req.user.username;
     const db = maindb();
+    console.log('ok');
     const userpath = path.join(utilsPath, process.env.User_db, username)
     console.log('ok');
     const files = fs.readdirSync(path.join(userpath, 'Schema'))
