@@ -496,7 +496,7 @@
 
         .rightbox {
             width: 50%;
-            transform: translate(-54px, 267px);
+            transform: translate(-54px, 270px);
             height: 23vh;
         }
     }
@@ -567,31 +567,6 @@
                     </a>
                 </div>
             </div>
-            <!-- <div class="flex flex-col justify-centre items-center gap-4 ok">/ -->
-            <!-- <div class="flex flex-col gap-2 w-[100%]">
-                    <div id="us"
-                        class="flex cursor-pointer flex-row justify-centre bg-green-800 rounded-full items-center bgc gap-3">
-                        <input type="hidden" value=" addeduser[0] %>">
-                        <div class="rounded-full border-2 border-yellow-500 size-12 overflow-hidden">
-                            <img src=" post[0] %>" style="width: 100%;height: 100%; object-fit: cover;" alt="">
-                        </div>
-                        <h1 class="text-xl font-bold"> saved[0] %></h1>
-                    </div>
-                </div> -->
-            <!-- <i class="fa-solid fa-repeat rotate fa-lg" style="color: #ffffff;"></i> -->
-            <!-- <div class="flex flex-col gap-2 w-[100%]">
-                    <div id="us"
-                        class="flex flex-row cursor-pointer justify-centre bg-gray-800 rounded-full items-center gap-3">
-                        <input type="hidden" value=" addeduser[1] %>">
-                        <div class="rounded-full border-2 border-yellow-500 size-12 overflow-hidden">
-                            <img src=" post[1] %>" style="width: 100%;height: 100%; object-fit: cover;" alt="">
-                        </div>
-                        <h1 class="text-xl font-bold">
-                             saved[1] %>
-                        </h1>
-                    </div>
-                </div> -->
-            <!-- </div> -->
         </div>
 
         <div class=" flex flex-row items-center logbtn justify-centre gap-5">
@@ -723,7 +698,7 @@
     </div>
 
     <div class="flex flex-col w-[75%] gap-10" id="Schema">
-        <h1 class="text-3xl mt-5 text-green-500 flex border-b-2 border-white flex-row gap-3 items-center font-bold">
+        <h1 class="text-3xl mt-5 text-green-500 flex border-b-2 border-white flex-row gap-3 items-center font-bold text">
             <i class="fa-solid fa-wrench fa-sm" style="color: #ffffff;"></i>Schema Api Management
         </h1>
         <div>
@@ -731,8 +706,6 @@
             <p>Decription Define a new data Collention (e.g.,'products','post') and its fields using a JSON payload.
             </p>
         </div>
-
-
         <div class="flex-row mt-4 flex w-[90%] border-green-500 border-l-2 bg-zinc-800 rounded-xl h-99 overflow-y-scroll"
             style="scrollbar-width: none;-ms-overflow-style:none">
             <button onclick="copy3()" class="btmc hover:bg-green-500">Copy</button>
@@ -761,7 +734,7 @@
     </div>
 
     <div class="flex flex-col w-[75%] gap-10" id="data">
-        <h1 class="text-3xl mt-5 text-green-500 flex border-b-2 border-white flex-row gap-3 items-center font-bold">
+        <h1 class="text-3xl mt-5 text-green-500 flex text border-b-2 border-white flex-row gap-3 items-center font-bold">
             <i class="fa-solid fa-server fa-xs" style="color: #ffffff;"></i>Data Save API
         </h1>
         <div>
@@ -799,7 +772,7 @@
     </div>
 
     <div class="flex flex-col w-[75%] gap-10" id="auth">
-        <h1 class="text-3xl mt-5 text-green-500 flex border-b-2 border-white flex-row gap-3 items-center font-bold">
+        <h1 class="text-3xl mt-5 text-green-500 flex text border-b-2 border-white flex-row gap-3 items-center font-bold">
             <i class="fa-solid fa-wand-sparkles fa-xs" style="color: #ffffff;"></i>Auth Handle API
         </h1>
         <div>
@@ -852,29 +825,29 @@
     </div>
 
     <script>
-        const api = document.querySelector('.api')
-        const us = document.querySelectorAll('#us')
-        const Switch = document.querySelector('#switch')
         const switchAcc = document.querySelector('#switchAcc')
-        const bar = document.querySelector('.bar')
+        const moveright = document.querySelector('.moveright')
         const barclick = document.querySelector('#barclick')
-        const mark = document.querySelector('#mark')
+        const rightb = document.querySelector('.rightbar')
+        const bordr = document.querySelectorAll('.bordr')
+        const Switch = document.querySelector('#switch')
+        const Schema = document.querySelector('#Schema')
         const box4 = document.querySelectorAll('#box4')
-        const cut = document.querySelector('.cut')
-        const bt3 = document.querySelector('#bt3')
-        const auth = document.querySelector('#auth')
-        const data = document.querySelector('#data')
-        const hid = document.querySelectorAll('#hid')
-        const btn = document.querySelectorAll('#btn')
+        const text = document.querySelectorAll('.text')
         const month = document.querySelector('.month')
         const cover = document.querySelector('.cover')
-        const text = document.querySelectorAll('.text')
+        const hid = document.querySelectorAll('#hid')
+        const btn = document.querySelectorAll('#btn')
         const bgc = document.querySelectorAll('.bgc')
-        const bordr = document.querySelectorAll('.bordr')
-        const Schema = document.querySelector('#Schema')
-        const moveright = document.querySelector('.moveright')
-        const rightb = document.querySelector('.rightbar')
+        const mark = document.querySelector('#mark')
+        const auth = document.querySelector('#auth')
+        const data = document.querySelector('#data')
         const cutt = document.querySelector('#cut')
+        const us = document.querySelectorAll('#us')
+        const api = document.querySelector('.api')
+        const bar = document.querySelector('.bar')
+        const cut = document.querySelector('.cut')
+        const bt3 = document.querySelector('#bt3')
 
         moveright.addEventListener('click', () => {
             rightb.style.transform = 'translateX(0%)'
