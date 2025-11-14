@@ -29,15 +29,18 @@ routes.get('/', islogin, (req, res) => {
     const files1 = fs.readdirSync(path.join(userpath, 'MainDataBase'))
     let total = 0
 
-    files.forEach(file => {
-        const store = fs.statSync(path.join(userpath, 'Schema', `${file}`)).size
-        total += store
-    });
-
-    files1.forEach(file => {
-        const store = fs.statSync(path.join(userpath, 'MainDataBase', `${file}`)).size
-        total += store
-    });
+    if (files) {
+        files.forEach(file => {
+            const store = fs.statSync(path.join(userpath, 'Schema', `${file}`)).size
+            total += store
+        });
+    }
+    if (files1) {
+        files1.forEach(file => {
+            const store = fs.statSync(path.join(userpath, 'MainDataBase', `${file}`)).size
+            total += store
+        });
+    }
 
     const read = readapi();
     let api = null
@@ -48,9 +51,9 @@ routes.get('/', islogin, (req, res) => {
         api = read[username]
     }
     const s = api.success / api.totalRequest * 100
-    const sc = s.toString().split('.')[0]||0
     const f = api.fail / api.totalRequest * 100
-    const fa = f.toString().split('.')[0]||0
+    const sc = s.toString().split('.')[0] || 0
+    const fa = f.toString().split('.')[0] || 0
 
     const data = db[username];
     if (!data) res.redirect('/login')
