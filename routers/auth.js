@@ -10,7 +10,6 @@ const { saveDb, maindb, readuser, saveuser } = require("../config/dbManager");
 const { generateOtp, sendMail } = require("../utils/otp-manager");
 let otpStore = {};
 
-
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'uploads')
