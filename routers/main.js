@@ -41,8 +41,6 @@ routes.get('/', islogin, (req, res) => {
 
     const read = readapi();
     let api = null
-    let addeduser = []
-    let post = []
 
     if (!read[username]) {
         api = read['guest']
@@ -57,7 +55,7 @@ routes.get('/', islogin, (req, res) => {
     const data = db[username];
     if (!data) res.redirect('/login')
 
-    res.render('index', { data, username, api, fa, sc, addeduser, post, total });
+    res.render('index', { data, username, api, fa, sc, total });
 });
 
 routes.get('/update', islogin, (req, res) => {
