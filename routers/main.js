@@ -25,8 +25,11 @@ routes.get('/', islogin, (req, res) => {
     const username = req.user.username;
     const db = maindb();
     const userpath = path.join(utilsPath, process.env.User_db, username)
+    console.log('ok');
     const files = fs.readdirSync(path.join(userpath, 'Schema'))
+    console.log('okoko');
     const files1 = fs.readdirSync(path.join(userpath, 'MainDataBase'))
+    console.log('okokokoko', files1);
     let total = 0
 
     if (files) {
