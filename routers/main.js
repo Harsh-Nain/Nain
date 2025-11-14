@@ -26,8 +26,7 @@ routes.get('/', islogin, (req, res) => {
     const db = maindb();
     const userpath = path.join(utilsPath, process.env.User_db, username)
     const files = fs.readdirSync(path.join(userpath, 'Schema')) || ''
-    const files1 = fs.readdirSync(path.join(userpath, 'MainDataBase')) || ''
-    console.log('okokokoko', files1);
+
     let total = 0
 
     if (files) {
@@ -36,7 +35,9 @@ routes.get('/', islogin, (req, res) => {
             total += store
         });
     }
-    if (files1) {
+    if (fs.readdirSync(path.join(userpath, 'MainDataBase'))) {
+        const files1 = fs.readdirSync(path.join(userpath, 'MainDataBase'))
+
         files1.forEach(file => {
             const store = fs.statSync(path.join(userpath, 'MainDataBase', `${file}`)).size
             total += store
