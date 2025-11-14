@@ -12,16 +12,6 @@ function readapi() {
     return db
 }
 
-function readuser() {
-    const db = JSON.parse(fs.readFileSync(path.join(utilsPath, process.env.Main_db, "saveuser.json"), 'utf8'));
-    return db
-}
-
-function saveuser(user) {
-    fs.writeFileSync(path.join(utilsPath, process.env.Main_db, "saveuser.json"), JSON.stringify(user))
-    return true
-}
-
 function saveapi(api) {
     fs.writeFileSync(path.join(utilsPath, process.env.Main_db, "apiData.json"), JSON.stringify(api))
     return true
@@ -32,4 +22,4 @@ function saveDb(db) {
     return true
 }
 
-module.exports = { saveDb, maindb, readapi, saveapi, readuser, saveuser }
+module.exports = { saveDb, maindb, readapi, saveapi }

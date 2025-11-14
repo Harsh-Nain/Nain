@@ -1,7 +1,7 @@
 const express = require('express')
 const routes = express.Router();
 const { islogin } = require("../middleware/authmid");
-const { maindb, readapi, readuser, saveuser, saveDb } = require("../config/dbManager");
+const { maindb, readapi, saveDb } = require("../config/dbManager");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const path = require('path')
@@ -40,19 +40,9 @@ routes.get('/', islogin, (req, res) => {
     });
 
     const read = readapi();
-    const saveusers = readuser();
-    const saved = Object.keys(saveusers)
     let api = null
     let addeduser = []
     let post = []
-    let dat = {}
-
-    // saved.slice(-2).forEach(element => {
-    //     addeduser.push(db[element].password);
-    //     post.push(db[element].src);
-    //     dat[element] = { save: true }
-    // })
-    saveuser(saved)
 
     if (!read[username]) {
         api = read['guest']
@@ -67,7 +57,7 @@ routes.get('/', islogin, (req, res) => {
     const data = db[username];
     if (!data) res.redirect('/login')
 
-    res.render('index', { data, username, api, fa, sc, saved, addeduser, post, total });
+    res.render('index', { data, username, api, fa, sc, addeduser, post, total });
 });
 
 routes.get('/update', islogin, (req, res) => {
