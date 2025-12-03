@@ -92,68 +92,69 @@
         <i class="uil uil-multiply toast-close"></i>
         <div class="progress"></div>
 
-        <script>
-            let inputs = document.querySelectorAll(".signup-inputs");
-            let login = document.getElementById("login");
-            let username = document.getElementById("username");
-            let password = document.getElementById("password");
-            let overlay = document.getElementById("overlay");
+    </div>
+    <script>
+        let inputs = document.querySelectorAll(".signup-inputs");
+        let login = document.getElementById("login");
+        let username = document.getElementById("username");
+        let password = document.getElementById("password");
+        let overlay = document.getElementById("overlay");
 
-            login.addEventListener("click", async () => {
-                for (const input of inputs) {
-                    input.classList.remove("border-red-500", "worngAnimation");
-                    if (input.value.trim() == "") {
-                        input.classList.add("border-red-500", "worngAnimation");
-                        return;
-                    }
+        login.addEventListener("click", async () => {
+            for (const input of inputs) {
+                input.classList.remove("border-red-500", "worngAnimation");
+                if (input.value.trim() == "") {
+                    input.classList.add("border-red-500", "worngAnimation");
+                    return;
                 }
+            }
 
-                const response = await fetch("/login", {
-                    method: "POST",
-                    headers: { "Content-type": "application/json" },
-                    body: JSON.stringify({
-                        username: username.value,
-                        password: password.value,
-                    })
-                });
-
-                let data = await response.json()
-
-                if (data.success) {
-                    window.location.href = data.redirect;
-                } else {
-                    toast.classList.add("active");
-                    progress.classList.add("active");
-
-                    setTimeout(() => {
-                        toast.classList.remove("active");
-                    }, 5000)
-
-                    setTimeout(() => {
-                        progress.classList.remove("active");
-                    }, 5300)
-                }
+            const response = await fetch("/login", {
+                method: "POST",
+                headers: { "Content-type": "application/json" },
+                body: JSON.stringify({
+                    username: username.value,
+                    password: password.value,
+                })
             });
 
-            var toast = document.querySelector(".toast");
-            var close = document.querySelector(".toast-close");
-            var progress = document.querySelector(".progress");
+            let data = await response.json()
 
-            close.addEventListener("click", () => {
-                toast.classList.remove("active");
+            if (data.success) {
+                window.location.href = data.redirect;
+            } else {
+                toast.classList.add("active");
+                progress.classList.add("active");
+
+                setTimeout(() => {
+                    toast.classList.remove("active");
+                }, 5000)
 
                 setTimeout(() => {
                     progress.classList.remove("active");
-                }, 300)
-            })
+                }, 5300)
+            }
+        });
 
-            document.addEventListener('keyup', (e) => {
-                if (e.key == 'Enter') {
-                    login.click()
-                }
-            })
+        var toast = document.querySelector(".toast");
+        var close = document.querySelector(".toast-close");
+        var progress = document.querySelector(".progress");
 
-        </script>
+        close.addEventListener("click", () => {
+            toast.classList.remove("active");
+
+            setTimeout(() => {
+                progress.classList.remove("active");
+            }, 300)
+        })
+
+        document.addEventListener('keyup', (e) => {
+            if (e.key == 'Enter') {
+                login.click()
+            }
+        })
+
+    </script>
 
 </body>
 
